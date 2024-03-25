@@ -1,0 +1,152 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\nimag\\OneDrive\\Desktop\\EsportsReady\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{3E3C9E39-B24B-49E6-8946-0B9D5176F525}|EsportsReady\\EsportsReady.csproj|c:\\users\\nimag\\onedrive\\desktop\\esportsready\\esportsready\\views\\product\\gamingpcs.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{3E3C9E39-B24B-49E6-8946-0B9D5176F525}|EsportsReady\\EsportsReady.csproj|solutionrelative:esportsready\\views\\product\\gamingpcs.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3E3C9E39-B24B-49E6-8946-0B9D5176F525}|EsportsReady\\EsportsReady.csproj|c:\\users\\nimag\\onedrive\\desktop\\esportsready\\esportsready\\wwwroot\\css\\homepage.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
+      "RelativeMoniker": "D:0:0:{3E3C9E39-B24B-49E6-8946-0B9D5176F525}|EsportsReady\\EsportsReady.csproj|solutionrelative:esportsready\\wwwroot\\css\\homepage.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3E3C9E39-B24B-49E6-8946-0B9D5176F525}|EsportsReady\\EsportsReady.csproj|c:\\users\\nimag\\onedrive\\desktop\\esportsready\\esportsready\\wwwroot\\css\\products.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
+      "RelativeMoniker": "D:0:0:{3E3C9E39-B24B-49E6-8946-0B9D5176F525}|EsportsReady\\EsportsReady.csproj|solutionrelative:esportsready\\wwwroot\\css\\products.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3E3C9E39-B24B-49E6-8946-0B9D5176F525}|EsportsReady\\EsportsReady.csproj|c:\\users\\nimag\\onedrive\\desktop\\esportsready\\esportsready\\views\\product\\gamingpc.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{3E3C9E39-B24B-49E6-8946-0B9D5176F525}|EsportsReady\\EsportsReady.csproj|solutionrelative:esportsready\\views\\product\\gamingpc.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3E3C9E39-B24B-49E6-8946-0B9D5176F525}|EsportsReady\\EsportsReady.csproj|c:\\users\\nimag\\onedrive\\desktop\\esportsready\\esportsready\\controllers\\productcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3E3C9E39-B24B-49E6-8946-0B9D5176F525}|EsportsReady\\EsportsReady.csproj|solutionrelative:esportsready\\controllers\\productcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3E3C9E39-B24B-49E6-8946-0B9D5176F525}|EsportsReady\\EsportsReady.csproj|c:\\users\\nimag\\onedrive\\desktop\\esportsready\\esportsready\\data\\productcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3E3C9E39-B24B-49E6-8946-0B9D5176F525}|EsportsReady\\EsportsReady.csproj|solutionrelative:esportsready\\data\\productcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3E3C9E39-B24B-49E6-8946-0B9D5176F525}|EsportsReady\\EsportsReady.csproj|c:\\users\\nimag\\onedrive\\desktop\\esportsready\\esportsready\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3E3C9E39-B24B-49E6-8946-0B9D5176F525}|EsportsReady\\EsportsReady.csproj|solutionrelative:esportsready\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3E3C9E39-B24B-49E6-8946-0B9D5176F525}|EsportsReady\\EsportsReady.csproj|c:\\users\\nimag\\onedrive\\desktop\\esportsready\\esportsready\\models\\product.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3E3C9E39-B24B-49E6-8946-0B9D5176F525}|EsportsReady\\EsportsReady.csproj|solutionrelative:esportsready\\models\\product.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 2,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "homepage.css",
+              "DocumentMoniker": "C:\\Users\\nimag\\OneDrive\\Desktop\\EsportsReady\\EsportsReady\\wwwroot\\css\\homepage.css",
+              "RelativeDocumentMoniker": "EsportsReady\\wwwroot\\css\\homepage.css",
+              "ToolTip": "C:\\Users\\nimag\\OneDrive\\Desktop\\EsportsReady\\EsportsReady\\wwwroot\\css\\homepage.css",
+              "RelativeToolTip": "EsportsReady\\wwwroot\\css\\homepage.css",
+              "ViewState": "AQIAAEoAAAAAAAAAAAAAAGQAAAABAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
+              "WhenOpened": "2024-03-25T12:13:26.301Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "products.css",
+              "DocumentMoniker": "C:\\Users\\nimag\\OneDrive\\Desktop\\EsportsReady\\EsportsReady\\wwwroot\\css\\products.css",
+              "RelativeDocumentMoniker": "EsportsReady\\wwwroot\\css\\products.css",
+              "ToolTip": "C:\\Users\\nimag\\OneDrive\\Desktop\\EsportsReady\\EsportsReady\\wwwroot\\css\\products.css",
+              "RelativeToolTip": "EsportsReady\\wwwroot\\css\\products.css",
+              "ViewState": "AQIAADsAAAAAAAAAAAAmwFYAAAABAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
+              "WhenOpened": "2024-03-25T12:13:27.075Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "GamingPCs.cshtml",
+              "DocumentMoniker": "C:\\Users\\nimag\\OneDrive\\Desktop\\EsportsReady\\EsportsReady\\Views\\Product\\GamingPCs.cshtml",
+              "RelativeDocumentMoniker": "EsportsReady\\Views\\Product\\GamingPCs.cshtml",
+              "ToolTip": "C:\\Users\\nimag\\OneDrive\\Desktop\\EsportsReady\\EsportsReady\\Views\\Product\\GamingPCs.cshtml",
+              "RelativeToolTip": "EsportsReady\\Views\\Product\\GamingPCs.cshtml",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAB4AAAAWAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-03-20T17:34:21.727Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "GamingPC.cshtml",
+              "DocumentMoniker": "C:\\Users\\nimag\\OneDrive\\Desktop\\EsportsReady\\EsportsReady\\Views\\Product\\GamingPC.cshtml",
+              "RelativeDocumentMoniker": "EsportsReady\\Views\\Product\\GamingPC.cshtml",
+              "ToolTip": "C:\\Users\\nimag\\OneDrive\\Desktop\\EsportsReady\\EsportsReady\\Views\\Product\\GamingPC.cshtml",
+              "RelativeToolTip": "EsportsReady\\Views\\Product\\GamingPC.cshtml",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAcAAAATAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-03-21T13:11:20.992Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "ProductController.cs",
+              "DocumentMoniker": "C:\\Users\\nimag\\OneDrive\\Desktop\\EsportsReady\\EsportsReady\\Controllers\\ProductController.cs",
+              "RelativeDocumentMoniker": "EsportsReady\\Controllers\\ProductController.cs",
+              "ToolTip": "C:\\Users\\nimag\\OneDrive\\Desktop\\EsportsReady\\EsportsReady\\Controllers\\ProductController.cs",
+              "RelativeToolTip": "EsportsReady\\Controllers\\ProductController.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABsAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-03-20T16:56:54.293Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "ProductContext.cs",
+              "DocumentMoniker": "C:\\Users\\nimag\\OneDrive\\Desktop\\EsportsReady\\EsportsReady\\Data\\ProductContext.cs",
+              "RelativeDocumentMoniker": "EsportsReady\\Data\\ProductContext.cs",
+              "ToolTip": "C:\\Users\\nimag\\OneDrive\\Desktop\\EsportsReady\\EsportsReady\\Data\\ProductContext.cs",
+              "RelativeToolTip": "EsportsReady\\Data\\ProductContext.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABYAAAArAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-03-20T16:49:51.884Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "Product.cs",
+              "DocumentMoniker": "C:\\Users\\nimag\\OneDrive\\Desktop\\EsportsReady\\EsportsReady\\Models\\Product.cs",
+              "RelativeDocumentMoniker": "EsportsReady\\Models\\Product.cs",
+              "ToolTip": "C:\\Users\\nimag\\OneDrive\\Desktop\\EsportsReady\\EsportsReady\\Models\\Product.cs",
+              "RelativeToolTip": "EsportsReady\\Models\\Product.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAwAAAAWAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-03-20T16:21:27.082Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\nimag\\OneDrive\\Desktop\\EsportsReady\\EsportsReady\\Program.cs",
+              "RelativeDocumentMoniker": "EsportsReady\\Program.cs",
+              "ToolTip": "C:\\Users\\nimag\\OneDrive\\Desktop\\EsportsReady\\EsportsReady\\Program.cs",
+              "RelativeToolTip": "EsportsReady\\Program.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAUAAAATAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-03-20T15:02:41.734Z"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

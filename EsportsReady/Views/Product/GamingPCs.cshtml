@@ -1,0 +1,34 @@
+﻿@model List<Product>
+
+@{
+    ViewData["Title"] = "Gaming PCs";
+}
+
+<head>
+    <link rel="stylesheet" href="~/css/products.css" asp-append-version="true" />
+</head>
+
+<main>
+    <div class="p-hero-img-container">
+        <div class="p-hero-text">
+            <h3>ESR PLAYER PCS</h3>
+            <h1>Be The Best Player</h1>
+            <p>Don't let your current PC hold you back</p>
+        </div>
+    </div>
+</main>
+
+<section class="p-product-section">
+    <header class="p-sub-header">
+        <h1>Our PCs</h1>
+    </header>
+    <div class="p-section-container">
+        @foreach(var i in Model)
+        {
+            <section class="p-product-cards">
+                <a asp-controller="Product" asp-action="GamingPC" asp-route-id="@i.Id">@i.Title</a>
+                <div class="p-product-img-container"></div>
+            </section>
+        }
+    </div>
+</section>

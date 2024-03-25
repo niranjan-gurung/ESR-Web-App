@@ -1,0 +1,96 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - EsportsReady</title>
+    @* <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" /> *@
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/headerFooter.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/EsportsReady.styles.css" asp-append-version="true" />
+
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+          integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+          crossorigin="anonymous"
+          referrerpolicy="no-referrer" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap"
+          rel="stylesheet" />
+
+</head>
+<body>
+    <header class="primary-header">
+        <div class="header-sticky">
+            <p>All ESR PCs are assembled in the UK.</p>
+        </div>
+        <nav class="primary-nav">
+            <ul class="nav-links">
+                <li><a class="brand-logo" asp-controller="Home" asp-action="Index">ESR</a></li>
+                <li><a asp-controller="Product" asp-action="GamingPCs">Gaming PCs</a></li>
+                <li><a asp-controller="" asp-action="">Peripherals</a></li>
+                <li><a asp-controller="" asp-action="">Components</a></li>
+                <li><a asp-controller="" asp-action="">Support</a></li>
+            </ul>
+            <ul class="nav-icons">
+                <li><a asp-controller="" asp-action=""><i class="fa fa-magnifying-glass"></i></a></li>
+                <li><a asp-controller="" asp-action=""><i class="fa fa-user"></i></a></li>
+                <li><a asp-controller="" asp-action=""><i class="fa fa-cart-shopping"></i></a>
+                </li>
+            </ul>
+        </nav>
+    </header>
+    <div>
+        @RenderBody()
+    </div>
+
+    <footer>
+        <div class="footer-container">
+            <section>
+                <ul class="social-links">
+                    <li><a asp-controller="" asp-action=""><i class="fa-brands fa-facebook fa-xl"></i></a></li>
+                    <li><a asp-controller="" asp-action=""><i class="fa-brands fa-square-x-twitter fa-xl"></i></a></li>
+                    <li><a asp-controller="" asp-action=""><i class="fa-brands fa-instagram fa-xl"></i></a></li>
+                    <li><a asp-controller="" asp-action=""><i class="fa-brands fa-youtube fa-xl"></i></a></li>
+                    <li><a asp-controller="" asp-action=""><i class="fa-brands fa-github fa-xl"></i></a></li>
+                    <li><a asp-controller="" asp-action=""><i class="fa-brands fa-discord fa-xl"></i></a></li>
+                </ul>
+            </section>
+            <section class="contact">
+                <div>
+                    <h3>CONTACT</h3>
+                    <a asp-controller="" asp-action=""><p>Company</p></a>
+                    <a asp-controller="" asp-action=""><p>Customer Support</p></a>
+                </div>
+                <div>
+                    <h3>ABOUT ESR</h3>
+                    <a asp-controller="" asp-action=""><p>Careers</p></a>
+                    <a asp-controller="" asp-action=""><p>Customer Reviews</p></a>
+                </div>
+                <div>
+                    <h3>COMMUNITY</h3>
+                    <a asp-controller="" asp-action=""><p>Our Discord</p></a>
+                    <a asp-controller="" asp-action=""><p>Newsroom & Blog</p></a>
+                </div>
+            </section>
+
+            <section class="cpy-policies">
+                <div class="copyright">
+                    <small>ESR</small>
+                    <small>&copy; ESR Inc. 2024 All Rights Reserved</small>
+                </div>
+                <div class="policies">
+                    <a asp-controller="" asp-action=""><small>Legal</small></a>
+                    <a asp-controller="" asp-action=""><small>Privacy</small></a>
+                    <a asp-controller="" asp-action=""><small>Manage Preferences</small></a>
+                </div>
+            </section>
+        </div>
+    </footer>
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    @* <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script> *@
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

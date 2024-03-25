@@ -1,0 +1,58 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+<head>
+    <link rel="stylesheet" href="~/css/homepage.css" asp-append-version="true" />
+</head>
+
+<main>
+    <div class="hp-hero-img-container">
+        <div class="hp-hero-text">
+            <h1>Prebuilt Gaming PCs</h1>
+            <p>Curated specially for the player</p>
+            <a asp-controller="Product" asp-action="GamingPCs">Shop Player PCs</a>
+        </div>
+    </div>
+</main>
+
+<section class="hp-review-section">
+    <header class="hp-sub-header">
+        <h1>Reviews</h1>
+    </header>
+    <div class="hp-section-container">
+        <section>
+            <div class="hp-review-container"></div>
+            <p>
+                “Offering real-world performance data is a great idea, and makes the
+                process of ordering a PC much less abstract for newcomers.”
+            </p>
+        </section>
+        <section>
+            <div class="hp-review-container"></div>
+            <p>
+                “There’s something lovely about having a PC that comes with a set of
+                guaranteed predicted frames-per-second targets for the games I
+                planned.”
+            </p>
+        </section>
+        <section>
+            <div class="hp-review-container"></div>
+            <p>
+                “This is certainly a very neat idea, and the company is putting its
+                money where its mouth is regarding the frame-rate estimations.”
+            </p>
+        </section>
+    </div>
+</section>
+
+<section>
+    <header class="hp-sub-header">
+        <h1>ESR Peripherals</h1>
+        <p>
+            Our latest peripheral releases, guaranteed to give you a competitive
+            edge.
+        </p>
+    </header>
+    <div class="hp-peripheral-img"></div>
+</section>
+
