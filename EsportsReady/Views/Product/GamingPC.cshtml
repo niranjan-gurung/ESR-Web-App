@@ -4,7 +4,18 @@
     ViewData["Title"] = "Gaming PC";
 }
 
+<head>
+    <style>
+        img {
+            width: 280px;
+            height: 280px;
+            object-fit: cover;
+        }
+    </style>
+</head>
+
 <p hidden>@Model.Id</p>
 <p>@Model.Title</p>
+<img src="@Url.Content(@Model.Image)" />
 <p>@Model.Price</p>
 <p>@Model.Description</p>

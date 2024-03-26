@@ -10,11 +10,11 @@ namespace EsportsReady.Models
         [Required]
         [StringLength(20, ErrorMessage="Title length has exceeded 20 characters.")]
         public string? Title { get; set; }
+        public string? Image { get; set; }
         [Range(1, 5000)]    // not needed really..
         public int Price { get; set; }
         [Required]
         [StringLength(1000, ErrorMessage = "Description length has exceeded 1000 characters.")]
         public string? Description { get; set; }
-        //public Category Category { get; set; }
     }
 }

@@ -74,53 +74,8 @@
 	transform: scale(0.98);
 }
 
-.p-section-container section .p-product-img-container {
-	padding: 140px;
-	background-size: cover;
-	background-position: center;
-}
-
-.p-section-container section:nth-child(1) .p-product-img-container {
-	background: url("../images/PCs/pcred.jpg");
-	background-size: cover;
-	background-position: center;
-}
-
-.p-section-container section:nth-child(2) .p-product-img-container {
-	background: url("../images/PCs/pcwhite.jpg");
-	background-size: cover;
-	background-position: bottom;
-}
-
-.p-section-container section:nth-child(2) .p-product-img-container {
-	background: url("../images/PCs/pcwhite.jpg");
-	background-size: cover;
-	background-position: bottom;
-}
-
-.p-section-container section:nth-child(3) .p-product-img-container {
-	background: url("../images/PCs/pcgreen.jpg");
-	background-size: 280px 320px;
-	background-position: center;
-	background-repeat: no-repeat;
-}
-
-.p-section-container section:nth-child(4) .p-product-img-container {
-	background: url("../images/PCs/pcblue.jpg");
-	background-size: cover;
-	background-position: center;
-}
-
-.p-section-container section:nth-child(5) .p-product-img-container {
-	/*background: url("../images/PCs/pcwhite.jpg");*/
-	background-color: #8528e1;
-	background-size: cover;
-	background-position: center;
-}
-
-.p-section-container section:nth-child(6) .p-product-img-container {
-	/*background: url("../images/PCs/pcwhite.jpg");*/
-	background-color: #8528e1;
-	background-size: cover;
-	background-position: center;
+.p-section-container .p-product-cards img {
+	width: 280px;
+	height: 280px;
+	object-fit: cover;
 }
