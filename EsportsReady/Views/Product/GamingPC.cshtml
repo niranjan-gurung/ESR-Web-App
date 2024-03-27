@@ -5,6 +5,10 @@
 }
 
 <head>
+    <link rel="stylesheet" href="~/css/productDetails.css" asp-append-version="true" />
+</head>
+
+<head>
     <style>
         img {
             width: 280px;
@@ -14,8 +18,35 @@
     </style>
 </head>
 
-<p hidden>@Model.Id</p>
-<p>@Model.Title</p>
-<img src="@Url.Content(@Model.Image)" />
-<p>@Model.Price</p>
-<p>@Model.Description</p>
+<main>
+    <section class="hero-section">
+        @* <p hidden>@Model.Id</p> *@
+        <a asp-controller="Product" asp-action="GamingPCs" style="display:block;">Back to Products</a>
+        <img src="@Url.Content(@Model.Image)" />
+    </section>
+
+    <div class="hero-description">
+        <section class="hero-title">
+            <header>@Model.Title</header>
+            @* <p>@Model.Description</p> *@
+            <h2>£@Model.Price</h2>
+            <a asp-controller="Product">PCs Built in 2 Business Days</a>
+        </section>
+    
+        <section class="hero-specification">
+            <header>Specification</header>
+            <p>Current Configuration</p>
+            <h3>CPU</h3>
+            <h3>GPU</h3>
+            <h3>Memory</h3>
+            <h3>Motherboard</h3>
+            <h3>Storage</h3>
+            <h3>PSU</h3>
+            @* <p>@Model.Description</p> *@
+        </section>
+    </div>
+</main>
+
+<section class="sticky">
+
+</section>

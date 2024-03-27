@@ -1,5 +1,6 @@
 ﻿using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace EsportsReady.Models
 {
@@ -14,7 +15,6 @@ namespace EsportsReady.Models
         [Range(1, 5000)]    // not needed really..
         public int Price { get; set; }
         [Required]
-        [StringLength(1000, ErrorMessage = "Description length has exceeded 1000 characters.")]
-        public string? Description { get; set; }
+        public Description Description { get; set; }
     }
 }

@@ -12,10 +12,80 @@ namespace EsportsReady.Data
         }
 
         public DbSet<Product> Products { get; set; }
+        public DbSet<Description> Descriptions { get; set; }
 
         // seed the table with some arbitrary data...
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+            modelBuilder.Entity<Description>().HasData(
+                new Description()
+                {
+                    DescriptionId = 1,
+                    ProductId = 1,
+                    CPU = "AMD Ryzen™ 5 5600G",
+                    GPU = "Radeon™ RX 580",
+                    Memory = "8GB (1 x 8GB) DDR4 2800 MHz",
+                    Motherboard = "B450M DS3H Motherboard",
+                    Storage = "500GB M.2 NVME SSD",
+                    PSU = "550W Bronze"
+                },
+                new Description()
+                {
+                    DescriptionId = 2,
+                    ProductId = 2,
+                    CPU = "AMD Ryzen™ 5 5600",
+                    GPU = "Radeon™ RX 6650 XT",
+                    Memory = "16GB (2 x 8GB) DDR4 3000 MHz",
+                    Motherboard = "B550M Motherboard",
+                    Storage = "1TB M.2 NVME SSD",
+                    PSU = "550W Bronze"
+                },
+                new Description()
+                {
+                    DescriptionId = 3,
+                    ProductId = 3,
+                    CPU = "Intel Core i5-13400F",
+                    GPU = "Radeon™ RX 6800",
+                    Memory = "16GB (2 x 8GB) DDR4 3200 MHz",
+                    Motherboard = "B760M DS3H Motherboard",
+                    Storage = "1TB M.2 NVME SSD",
+                    PSU = "650W Gold"
+                },
+                new Description()
+                {
+                    DescriptionId = 4,
+                    ProductId = 4,
+                    CPU = "Intel® Core™ i5-12600K",
+                    GPU = "NVIDIA® GeForce RTX™ 3070",
+                    Memory = "32GB (4 x 8GB) DDR4 3200 MHz",
+                    Motherboard = "B760M DS3H Motherboard",
+                    Storage = "1TB M.2 NVMe SSD",
+                    PSU = "750W Gold PSU"
+                },
+                new Description()
+                {
+                    DescriptionId = 5,
+                    ProductId = 5,
+                    CPU = "AMD Ryzen™ 7 5800X3D",
+                    GPU = "NVIDIA® GeForce RTX™ 4070",
+                    Memory = "32GB (2 x 16GB) DDR4 3600 MHz",
+                    Motherboard = "B650 Motherboard",
+                    Storage = "2TB M.2 NVMe SSD",
+                    PSU = "SFX 850W Gold"
+                },
+                new Description()
+                {
+                    DescriptionId = 6,
+                    ProductId = 6,
+                    CPU = "AMD Ryzen™ 7 7800X3D",
+                    GPU = "NVIDIA® GeForce RTX™ 4070 Ti",
+                    Memory = "64GB (4 x 16GB) DDR4 3600 MHz",
+                    Motherboard = "X670E Motherboard",
+                    Storage = "2TB M.2 NVMe SSD",
+                    PSU = "1000W Gold"
+                }
+            );
+
             modelBuilder.Entity<Product>().HasData(
                 new Product 
                 { 
@@ -23,7 +93,15 @@ namespace EsportsReady.Data
                     Title = "Gaming PC 1",
                     Image = "~/images/PCs/pc1.jpg",
                     Price = 400,
-                    Description = "AMD Ryzen™ 5 5600G, Radeon™ RX 580, 8GB (1 x 8GB) DDR4 2800 MHz, B450M DS3H Motherboard, 500GB M.2 NVME SSD, 550W Bronze PSU"
+                    //Description = new Description()
+                    //{ 
+                    //    CPU = "AMD Ryzen™ 5 5600G",
+                    //    GPU = "Radeon™ RX 580",
+                    //    Memory = "8GB (1 x 8GB) DDR4 2800 MHz", 
+                    //    Motherboard = "B450M DS3H Motherboard", 
+                    //    Storage = "500GB M.2 NVME SSD",
+                    //    PSU = "550W Bronze" 
+                    //}
                 },
                 new Product
                 {
@@ -31,7 +109,15 @@ namespace EsportsReady.Data
                     Title = "Gaming PC 2",
                     Image = "~/images/PCs/pc2.jpg",
                     Price = 700,
-                    Description = "AMD Ryzen™ 5 5600, Radeon™ RX 6650 XT, 16GB (2 x 8GB) DDR4 3000 MHz, B550M Motherboard, 1TB M.2 NVME, 550W Bronze PSU"
+                    //Description = new Description()
+                    //{
+                    //    CPU = "AMD Ryzen™ 5 5600",
+                    //    GPU = "Radeon™ RX 6650 XT",
+                    //    Memory = "16GB (2 x 8GB) DDR4 3000 MHz",
+                    //    Motherboard = "B550M Motherboard",
+                    //    Storage = "1TB M.2 NVME SSD",
+                    //    PSU = "550W Bronze"
+                    //}
                 },
                 new Product
                 {
@@ -39,7 +125,16 @@ namespace EsportsReady.Data
                     Title = "Gaming PC 3",
                     Image = "~/images/PCs/pcred.jpg",
                     Price = 900,
-                    Description = "Intel Core i5-13400F, Radeon™ RX 6800, B760M DS3H Motherboard, 16GB (2 x 8GB) DDR4-3200 MHz, 1TB M.2 NVME, 750W Gold PSU"
+                    //Description = new Description()
+                    //{
+                    //    CPU = "Intel Core i5-13400F",
+                    //    GPU = "Radeon™ RX 6800",
+                    //    Memory = "16GB (2 x 8GB) DDR4 3200 MHz",
+                    //    Motherboard = "B760M DS3H Motherboard",
+                    //    Storage = "1TB M.2 NVME SSD",
+                    //    PSU = "650W Gold"
+                    //}
+
                 },
                 new Product
                 {
@@ -47,7 +142,15 @@ namespace EsportsReady.Data
                     Title = "Gaming PC 4",
                     Image = "~/images/PCs/pcblue.jpg",
                     Price = 1200,
-                    Description = "Intel® Core™ i5-12600K, NVIDIA® GeForce RTX™ 3070, 32GB (4 x 8GB) DDR4 3200 MHz, B760 Motherboard, 1TB NVMe M.2 SSD, ATX 650W Gold PSU"
+                    //Description = new Description()
+                    //{
+                    //    CPU = "Intel® Core™ i5-12600K",
+                    //    GPU = "NVIDIA® GeForce RTX™ 3070",
+                    //    Memory = "32GB (4 x 8GB) DDR4 3200 MHz",
+                    //    Motherboard = "B760M DS3H Motherboard",
+                    //    Storage = "1TB M.2 NVMe SSD",
+                    //    PSU = "750W Gold PSU"
+                    //}
                 },
                 new Product
                 {
@@ -55,7 +158,15 @@ namespace EsportsReady.Data
                     Title = "Gaming PC 5",
                     Image = "~/images/PCs/pcgreen.jpg",
                     Price = 1500,
-                    Description = "AMD Ryzen™ 7 5800X3D, NVIDIA® GeForce RTX™ 4070, 32GB (2 x 16GB) DDR4 3600 MHz, B650 Motherboard, 2TB NVMe M.2 SSD, SFX 850W Gold PSU"
+                    //Description = new Description()
+                    //{
+                    //    CPU = "AMD Ryzen™ 7 5800X3D",
+                    //    GPU = "NVIDIA® GeForce RTX™ 4070",
+                    //    Memory = "32GB (2 x 16GB) DDR4 3600 MHz",
+                    //    Motherboard = "B650 Motherboard",
+                    //    Storage = "2TB M.2 NVMe SSD",
+                    //    PSU = "SFX 850W Gold"
+                    //}
                 },
                 new Product
                 {
@@ -63,7 +174,15 @@ namespace EsportsReady.Data
                     Title = "Gaming PC 6",
                     Image = "~/images/PCs/pcwhite.jpg",
                     Price = 2100,
-                    Description = "AMD Ryzen™ 7 7800X3D, NVIDIA® GeForce RTX™ 4070 Ti, 64 GB (4 x 16GB) DDR4 3600 MHz, X670E Motherboard, 2TB NVMe M.2 SSD, 1000W Gold PSU"
+                    //Description = new Description()
+                    //{
+                    //    CPU = "AMD Ryzen™ 7 7800X3D",
+                    //    GPU = "NVIDIA® GeForce RTX™ 4070 Ti",
+                    //    Memory = "64GB (4 x 16GB) DDR4 3600 MHz",
+                    //    Motherboard = "X670E Motherboard",
+                    //    Storage = "2TB M.2 NVMe SSD",
+                    //    PSU = "1000W Gold"
+                    //}
                 }
             );
         }
