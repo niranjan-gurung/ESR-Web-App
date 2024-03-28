@@ -26,47 +26,43 @@
     <link rel="stylesheet" href="~/css/productDetails.css" asp-append-version="true" />
 </head>
 
-<head>
-    <style>
-        img {
-            width: 280px;
-            height: 280px;
-            object-fit: cover;
-        }
-    </style>
-</head>
-
 <main>
-    <section class="hero-section">
-        @* <p hidden>@Model.Id</p> *@
-        <a asp-controller="Product" asp-action="GamingPCs" style="display:block;">Back to Products</a>
-        <img src="@Url.Content(@Model.Image)" />
-    </section>
+    <div class="hero-section">
+        <div class="back">
+            <a asp-controller="Product" asp-action="GamingPCs"><-Back to Products</a>
+        </div>
 
-    <div class="hero-description">
-        <section class="hero-title">
-            <header>@Model.Title</header>
-            <p>@cpuShorthand | @gpuShorthand | Prebuilt Gaming PC</p>
-            <h2>£@Model.Price</h2>
-            <a asp-controller="Product">PCs Built in 2 Business Days</a>
-        </section>
+        <div class="content">
+            <section class="content-left">
+                <img class="hero-img" src="@Url.Content(@Model.Image)" />
+            </section>
+
+            <div class="content-right">
+                <section class="hero-title">
+                    <header>@Model.Title</header>
+                    <p class="title-specs">@cpuShorthand | @gpuShorthand | Prebuilt Gaming PC</p>
+                    <p class="title-price">£@Model.Price.00</p>
+                    <a asp-controller="Product">PCs Built in 2 Business Days</a>
+                </section>
     
-        <section class="hero-specification">
-            <header>Specification</header>
-            <p>Current Configuration</p>
-            <h3>CPU</h3>
-            <p>@Model.Description.CPU</p>
-            <h3>GPU</h3>
-            <p>@Model.Description.GPU</p>
-            <h3>Memory</h3>
-            <p>@Model.Description.Memory</p>
-            <h3>Motherboard</h3>
-            <p>@Model.Description.Motherboard</p>
-            <h3>Storage</h3>
-            <p>@Model.Description.Storage</p>
-            <h3>PSU</h3>
-            <p>@Model.Description.PSU</p>
-        </section>
+                <section class="hero-specification">
+                    <header>Specification</header>
+                    <p class="title-config">Current Configuration</p>
+                    <h3>CPU</h3>
+                    <p>@Model.Description.CPU</p>
+                    <h3>GPU</h3>
+                    <p>@Model.Description.GPU</p>
+                    <h3>Memory</h3>
+                    <p>@Model.Description.Memory</p>
+                    <h3>Motherboard</h3>
+                    <p>@Model.Description.Motherboard</p>
+                    <h3>Storage</h3>
+                    <p>@Model.Description.Storage</p>
+                    <h3>PSU</h3>
+                    <p>@Model.Description.PSU</p>
+                </section>
+            </div>
+        </div>
     </div>
 </main>
 

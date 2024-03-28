@@ -17,7 +17,8 @@ namespace EsportsReady.Controllers
         public async Task<IActionResult> GamingPCs()
         {
             // grabs all products and its description from DB, through FK link.
-            List<Product> products = await _context.Products.Include(d => d.Description).ToListAsync();
+            List<Product> products = await _context.Products
+                .Include(d => d.Description).ToListAsync();
             return View(products);
         }
 
