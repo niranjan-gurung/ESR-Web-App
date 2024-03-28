@@ -1,7 +1,25 @@
-﻿@model Product
+﻿@using System.Text.RegularExpressions
+@model Product
 
 @{
     ViewData["Title"] = "Gaming PC";
+
+    // trim full cpu name (shorthand for title):
+    string? cpuShorthand = Model.Description.CPU;
+    string? gpuShorthand = Model.Description.GPU;
+    string num = Regex.Match(cpuShorthand, @"\d+").Value;
+    int i = cpuShorthand.IndexOf(num);
+    if (i >= 0) 
+        cpuShorthand = cpuShorthand.Substring(0, i + 1);
+
+    // trim full gpu name (shorthand for title):
+    RegexOptions options = RegexOptions.IgnoreCase;
+    MatchCollection matches = Regex.Matches(gpuShorthand, "r", options);
+    if (matches.Count >= 2)
+    {
+        int j = matches[1].Index;
+        gpuShorthand = gpuShorthand.Substring(j);
+    }
 }
 
 <head>
@@ -28,7 +46,7 @@
     <div class="hero-description">
         <section class="hero-title">
             <header>@Model.Title</header>
-            @* <p>@Model.Description</p> *@
+            <p>@cpuShorthand | @gpuShorthand | Prebuilt Gaming PC</p>
             <h2>£@Model.Price</h2>
             <a asp-controller="Product">PCs Built in 2 Business Days</a>
         </section>
@@ -37,12 +55,17 @@
             <header>Specification</header>
             <p>Current Configuration</p>
             <h3>CPU</h3>
+            <p>@Model.Description.CPU</p>
             <h3>GPU</h3>
+            <p>@Model.Description.GPU</p>
             <h3>Memory</h3>
+            <p>@Model.Description.Memory</p>
             <h3>Motherboard</h3>
+            <p>@Model.Description.Motherboard</p>
             <h3>Storage</h3>
+            <p>@Model.Description.Storage</p>
             <h3>PSU</h3>
-            @* <p>@Model.Description</p> *@
+            <p>@Model.Description.PSU</p>
         </section>
     </div>
 </main>

@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace EsportsReady.Models
 {
@@ -6,7 +7,10 @@ namespace EsportsReady.Models
     {
         [Key]
         public int DescriptionId { get; set; }
-        public int ProductId { get; set; }
+        [ForeignKey("ProductId")]
+        public int ProductId { get; set; }              // foreign key to principle model (product)
+        public Product Product { get; set; } = null!;   // ref/navigation to principle
+
         public string? CPU { get; set; }
         public string? GPU { get; set; }
         public string? Memory { get; set; }

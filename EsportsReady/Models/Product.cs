@@ -14,7 +14,6 @@ namespace EsportsReady.Models
         public string? Image { get; set; }
         [Range(1, 5000)]    // not needed really..
         public int Price { get; set; }
-        [Required]
-        public Description Description { get; set; }
+        public Description Description { get; set; } = null!;   // ref/navigation to dependant (description)
     }
 }

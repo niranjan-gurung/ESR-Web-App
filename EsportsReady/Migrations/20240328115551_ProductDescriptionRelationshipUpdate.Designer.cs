@@ -3,6 +3,7 @@ using EsportsReady.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -10,9 +11,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace EsportsReady.Migrations
 {
     [DbContext(typeof(ProductContext))]
-    partial class ProductContextModelSnapshot : ModelSnapshot
+    [Migration("20240328115551_ProductDescriptionRelationshipUpdate")]
+    partial class ProductDescriptionRelationshipUpdate
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -86,7 +89,7 @@ namespace EsportsReady.Migrations
                             CPU = "Intel Core i5-13400F",
                             GPU = "Radeon™ RX 6800",
                             Memory = "16GB (2 x 8GB) DDR4 3200 MHz",
-                            Motherboard = "B650 DS3H Motherboard",
+                            Motherboard = "B760M DS3H Motherboard",
                             PSU = "650W Gold",
                             ProductId = 3,
                             Storage = "1TB M.2 NVME SSD"
@@ -97,7 +100,7 @@ namespace EsportsReady.Migrations
                             CPU = "Intel® Core™ i5-12600K",
                             GPU = "NVIDIA® GeForce RTX™ 3070",
                             Memory = "32GB (4 x 8GB) DDR4 3200 MHz",
-                            Motherboard = "B650M DS3H Motherboard",
+                            Motherboard = "B760M DS3H Motherboard",
                             PSU = "750W Gold PSU",
                             ProductId = 4,
                             Storage = "1TB M.2 NVMe SSD"
@@ -108,7 +111,7 @@ namespace EsportsReady.Migrations
                             CPU = "AMD Ryzen™ 7 5800X3D",
                             GPU = "NVIDIA® GeForce RTX™ 4070",
                             Memory = "32GB (2 x 16GB) DDR4 3600 MHz",
-                            Motherboard = "B760M Motherboard",
+                            Motherboard = "B650 Motherboard",
                             PSU = "SFX 850W Gold",
                             ProductId = 5,
                             Storage = "2TB M.2 NVMe SSD"

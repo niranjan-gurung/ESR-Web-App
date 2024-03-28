@@ -1,6 +1,7 @@
 ﻿using EsportsReady.Data;
 using EsportsReady.Models;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 
 namespace EsportsReady.Controllers
 {
@@ -13,18 +14,23 @@ namespace EsportsReady.Controllers
         }
 
         // GET: return All Gaming pcs
-        public IActionResult GamingPCs()
+        public async Task<IActionResult> GamingPCs()
         {
-            return View(_context.Products.ToList());
+            // grabs all products and its description from DB, through FK link.
+            List<Product> products = await _context.Products.Include(d => d.Description).ToListAsync();
+            return View(products);
         }
 
         // GET/id: return specific gaming pc (id based)
-        public IActionResult GamingPC(int? id) 
+        public async Task<IActionResult> GamingPC(int? id) 
         {
             if (id == null || id == 0)
                 return NotFound();
 
-            Product? product = _context.Products.Find(id);
+            // grabs ID specific product and its description from DB, through FK link.
+            Product? product = await _context.Products
+                .Include(d => d.Description)
+                .SingleOrDefaultAsync(d => d.Id == id);
 
             if (product == null)
                 return NotFound();
