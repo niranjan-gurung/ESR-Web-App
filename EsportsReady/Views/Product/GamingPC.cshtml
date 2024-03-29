@@ -42,7 +42,13 @@
                     <header>@Model.Title</header>
                     <p class="title-specs">@cpuShorthand | @gpuShorthand | Prebuilt Gaming PC</p>
                     <p class="title-price">£@Model.Price.00</p>
-                    <a asp-controller="Product">PCs Built in 2 Business Days</a>
+                    
+                    <a href="#ex1" rel="modal:open">PCs Built in 2 Business Days</a>
+                    <div id="ex1" class="modal">
+                        <h2>Processing Timeframe</h2>
+                        <p>Prebuilt & Custom PCs roughly 2 business days.</p>
+                        <p>We appreciate your patience as our team work hard to fulfill your orders!</p>
+                    </div>
                 </section>
     
                 <section class="hero-specification">
@@ -66,6 +72,18 @@
     </div>
 </main>
 
-<section class="sticky">
+<section class="cart-sticky">
+   
+    <div class="sticky-container">
+        <section class="sticky-left">
+            <header>@Model.Title</header>
+            <p class="sticky-specs">@cpuShorthand | @gpuShorthand | Prebuilt Gaming PC</p>
+        </section>
+
+        <section class="sticky-right">
+            <p class="title-price">£@Model.Price.00</p>
+            <a asp-controller="" asp-action="">Add to Cart</a>
+        </section>
+    </div>
 
 </section>

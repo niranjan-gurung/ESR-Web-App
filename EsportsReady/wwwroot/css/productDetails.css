@@ -52,6 +52,37 @@
 
 .content-right a:hover {
 	text-decoration: underline;
+	cursor: pointer;
+}
+
+#ex1 {
+	padding: 50px 40px;
+}
+
+#ex1 h2 {
+	font-size: 2.1rem;
+	font-weight: 700;
+	margin-bottom: 10px;
+
+	letter-spacing: 1px;
+}
+
+#ex1 p {
+	font-weight: 400;
+	margin-bottom: 10px;
+	letter-spacing: 0.5px;
+}
+
+#ex1 a {
+	color: black;
+	font-weight: 400;
+	text-align: center;
+	cursor: pointer;
+	transition: transform 0.2s;
+}
+
+#ex1 a:active {
+	transform: scale(0.98);
 }
 
 .hero-title header {
@@ -85,4 +116,59 @@
 
 .hero-specification h3 {
 	font-weight: 700;
+}
+
+.cart-sticky {
+	position: sticky;
+	bottom: 0;
+	background-color: #E6E6E6;
+}
+
+.sticky-container {
+	display: flex;
+	justify-content: space-between;
+	padding: 35px 450px;
+}
+
+.sticky-container .sticky-right {
+	display: flex;
+	align-items: center;
+}
+
+.sticky-container .sticky-left header {
+	font-weight: 700;
+	font-size: 1.5rem;
+	margin-bottom: 8px;
+}
+
+.sticky-container .sticky-left p {
+	font-size: 0.95rem;
+}
+
+.sticky-container .sticky-right p {
+	margin-right: 30px;
+	font-weight: 600;
+	font-size: 1.3rem;
+}
+
+.sticky-container .sticky-right a {
+	max-width: 100%;
+	padding: 10px 50px;
+	background-color: #8528e1;
+	color: white;
+	font-weight: 400;
+	text-align: center;
+	border-radius: 8px;
+	box-shadow: 0px 5px 10px 1px rgba(72, 66, 80, 0.5);
+	cursor: pointer;
+	transition: transform 0.2s;
+}
+
+.sticky-container .sticky-right a:hover {
+	background-color: #622999;
+	transform: scale(1.03);
+}
+
+.sticky-container .sticky-right a:active {
+	transform: scale(0.98);
 }
