@@ -1,0 +1,80 @@
+﻿.p-hero-img-container {
+	--img-padding: 290px;
+	background-color: #8528e1;
+	background-image: url("../images/PCs/product-hero.jpg");
+	background-position: bottom;
+	background-size: cover;
+	padding-top: var(--img-padding);
+	padding-bottom: var(--img-padding);
+}
+
+.p-hero-text {
+	padding: 20px 320px;
+	color: white;
+
+	h1 {
+		font-size: 4rem;
+		font-weight: 600;
+		padding: 20px 0px;
+	}
+
+	h3, p {
+		font-size: 1.2rem;
+		font-weight: 300;
+	}
+}
+
+.p-sub-header {
+	padding: 45px;
+	font-size: 2.2rem;
+	font-weight: 700;
+	text-align: center;
+}
+
+.p-section-container {
+	display: grid;
+	gap: 1rem;
+	grid-template-columns: repeat(3, 1fr);
+	max-width: 1150px;
+	margin-inline: auto;
+	margin-bottom: 45px;
+}
+
+.p-product-cards {
+	display: flex;
+	flex-direction: column;
+	height: 430px;
+	padding: 40px 50px;
+	background-color: red;
+	border-radius: 12px;
+	text-align: center;
+	justify-content: space-between;
+
+	a {
+		max-width: 100%;
+		padding: 10px;
+		background-color: #8528e1;
+		color: white;
+		font-weight: 400;
+		text-align: center;
+		border-radius: 8px;
+		box-shadow: 0px 5px 10px 1px rgba(72, 66, 80, 0.5);
+		cursor: pointer;
+		transition: transform 0.2s;
+
+		&:hover {
+			background-color: #622999;
+			transform: scale(1.03);
+		}
+
+		&:active {
+			transform: scale(0.98);
+		}
+	}
+
+	img {
+		width: 280px;
+		height: 280px;
+		object-fit: cover;
+	}
+}

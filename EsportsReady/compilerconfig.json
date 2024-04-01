@@ -1,0 +1,18 @@
+﻿[
+  {
+    "outputFile": "wwwroot/css/productDetails.css",
+    "inputFile": "wwwroot/css/productDetails.scss"
+  },
+  {
+    "outputFile": "wwwroot/css/headerFooter.css",
+    "inputFile": "wwwroot/css/headerFooter.scss"
+  },
+  {
+    "outputFile": "wwwroot/css/homepage.css",
+    "inputFile": "wwwroot/css/homepage.scss"
+  },
+  {
+    "outputFile": "wwwroot/css/products.css",
+    "inputFile": "wwwroot/css/products.scss"
+  }
+]
