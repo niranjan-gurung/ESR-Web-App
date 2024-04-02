@@ -17,7 +17,7 @@
   padding: 10px 0px;
 }
 .hp-hero-text h1 {
-  width: 400px;
+  max-width: 400px;
   word-wrap: break-word;
   font-size: 4rem;
   font-weight: 600;
