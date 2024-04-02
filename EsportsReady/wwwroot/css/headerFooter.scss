@@ -1,7 +1,188 @@
-﻿.primary-header {
+﻿/* Mobile First Design */
+.primary-header {
 	position: sticky;
 	top: 0;
+}
 
+.header-sticky {
+	background-color: #8528e1;
+	color: white;
+	padding: 14px;
+	font-size: 12px;
+	text-align: center;
+}
+
+.primary-nav {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	text-align: center;
+	background-color: #2f2f2f;
+	padding: 10px 30px;
+
+	a {
+		color: white;
+
+		&:hover {
+			color: #a1a1a1;
+		}
+	}
+
+	.nav-links {
+		.brand-logo {
+			font-weight: 800;
+			font-size: 0.9rem;
+		}
+
+		font-size: 0.9rem;
+	}
+
+	.nav-icons {
+		display: flex;
+		li {
+			margin: 0px 10px;
+		}
+	}
+}
+
+footer {
+	background: rgb(47, 47, 47);
+	background: linear-gradient( 180deg, rgba(47, 47, 47, 1) 0%, rgba(31, 31, 31, 1) 39% );
+	color: #adadad;
+	padding: 10px;
+}
+
+.footer-container {
+	h3 {
+		color: white;
+	}
+
+	a {
+		color: #adadad;
+
+		&:hover {
+			color: white;
+		}
+	}
+}
+
+.social-links {
+	display: flex;
+	justify-content: center;
+
+	a {
+		padding-right: 10px;
+	}
+}
+
+.contact {
+	margin: 10px;
+	text-align: center;
+	font-size: 0.9rem;
+
+	div {
+		h3 {
+			margin: 10px 0px;
+			font-weight: 600;
+		}
+
+		a p {
+			margin-bottom: 5px;
+		}
+	}
+}
+
+.cpy-policies {
+	display: flex;
+	align-items: end;
+	justify-content: space-between;
+	font-size: 0.8rem;
+
+	.copyright {
+		display: flex;
+		flex-direction: column;
+
+		small:first-child {
+			color: white;
+			font-weight: 600;
+		}
+	}
+}
+/****************************************/
+/********* Laptop + PC Screens: *********/
+/****************************************/
+
+@media screen and (min-width: 500px) {
+	.primary-nav {
+		display: flex;
+		flex-direction: column;
+		background-color: #2f2f2f;
+		padding: 10px 50px;
+		
+		.nav-links {
+			display: flex;
+			gap: 1rem;
+		}
+	}
+
+	footer {
+
+	}
+
+	.cpy-policies {
+		/*display: flex;
+		align-items: end;
+		justify-content: space-between;
+		font-size: 0.8rem;
+
+		.copyright {
+			display: flex;
+			flex-direction: column;
+
+			small:first-child {
+				color: white;
+				font-weight: 600;
+			}
+		}*/
+
+		.policies {
+			small {
+				padding-left: 10px;
+			}
+		}
+	}
+}
+
+@media screen and (min-width: 1024px) {
+	.primary-nav {
+		display: flex;
+		flex-direction: row;
+		background-color: #2f2f2f;
+		padding: 18px 120px;
+
+		.nav-links {
+			flex-grow: 1;
+			gap: 2rem;
+			justify-content: space-between;
+			align-items: center;
+			font-size: 0.98rem;
+
+			.brand-logo {
+				font-weight: 800;
+				font-size: 20px;
+			}
+		}
+
+		.nav-icons {
+			flex-grow: 1;
+			justify-content: end;
+		}
+	}
+}
+
+/*.primary-header {
+	position: sticky;
+	top: 0;
 }
 
 .header-sticky {
@@ -48,10 +229,6 @@
 		justify-content: end;
 		align-items: center;
 		padding-right: 200px;
-		flex-wrap: wrap;
-
-		li {
-			padding: 0px 10px;
 		}
 	}
 }
@@ -78,7 +255,6 @@ footer {
 			color: white;
 		}
 	}
-
 }
 
 .social-links {
@@ -127,4 +303,4 @@ footer {
 	.policies small {
 		padding-right: 13px;
 	}
-}
+}*/
