@@ -1,4 +1,4 @@
-﻿const x = document.querySelectorAll(".p-product-cards");
+﻿const x = document.querySelectorAll(".product-cards");
 
 const cardColours = [
 	"#8DD6BC",

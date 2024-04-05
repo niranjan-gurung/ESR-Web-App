@@ -1,54 +1,61 @@
-﻿.p-hero-img-container {
-	--img-padding: 290px;
-	background-color: #8528e1;
+﻿$img-padding-mobile: 110px;
+$img-padding-laptop: 170px;
+$img-padding-desktop: 230px;
+
+.hero-img-container {
+	background-color: black;
 	background-image: url("../images/PCs/product-hero.jpg");
-	background-position: bottom;
-	background-size: cover;
-	padding-top: var(--img-padding);
-	padding-bottom: var(--img-padding);
+	background-size: auto;
+	background-repeat: no-repeat;
+	padding-top: $img-padding-mobile;
+	padding-bottom: $img-padding-mobile;
 }
 
-.p-hero-text {
-	padding: 20px 320px;
+.hero-text {
 	color: white;
+	text-align: center;
 
-	h1 {
-		font-size: 4rem;
-		font-weight: 600;
-		padding: 20px 0px;
+	h1, h3, p {
+		margin-block: 8px;
 	}
 
-	h3, p {
-		font-size: 1.2rem;
+	h1 {
+		font-size: 1.6rem;
+		font-weight: 600;
+	}
+
+	p {
+		font-size: 0.98rem;
 		font-weight: 300;
 	}
 }
 
-.p-sub-header {
-	padding: 45px;
-	font-size: 2.2rem;
-	font-weight: 700;
+.sub-header {
 	text-align: center;
+
+	h1 {
+		padding: 10px;
+		font-size: 1.5rem;
+		font-weight: 700;
+	}
 }
 
-.p-section-container {
+.section-container {
 	display: grid;
-	gap: 1rem;
-	grid-template-columns: repeat(3, 1fr);
-	max-width: 1150px;
-	margin-inline: auto;
-	margin-bottom: 45px;
+	grid-template-columns: repeat(1, 1fr);
+	justify-items: center;
+	grid-gap: 1rem;
+	margin-bottom: 20px;
 }
 
-.p-product-cards {
+.product-cards {
 	display: flex;
 	flex-direction: column;
-	height: 430px;
-	padding: 40px 50px;
-	background-color: red;
-	border-radius: 12px;
-	text-align: center;
 	justify-content: space-between;
+
+	min-height: 300px;
+	padding: 30px 30px;
+	border-radius: 12px;
 
 	a {
 		max-width: 100%;
@@ -73,8 +80,68 @@
 	}
 
 	img {
-		width: 280px;
-		height: 280px;
+		width: 180px;
+		height: 180px;
 		object-fit: cover;
+	}
+}
+
+@media screen and (min-width: 500px) {
+	.hero-img-container {
+		background-image: url("../images/PCs/product-hero.jpg");
+		background-position: center;
+		padding-top: $img-padding-laptop;
+		padding-bottom: $img-padding-laptop;
+	}
+
+	.section-container {
+		grid-template-columns: repeat(2, 1fr);
+		max-width: 650px;
+		margin-inline: auto;
+		margin-bottom: 20px;
+	}
+}
+
+@media screen and (min-width: 1000px) {
+	.hero-img-container {
+		background-image: url("../images/PCs/product-hero.jpg");
+		background-size: contain;
+		background-position: bottom;
+		padding-top: $img-padding-desktop;
+		padding-bottom: $img-padding-desktop;
+	}
+
+	.hero-text {
+		h1 {
+			font-size: 4rem;
+		}
+
+		h3, p {
+			font-size: 1.2rem;
+			font-weight: 300;
+		}
+	}
+
+	.sub-header {
+		padding: 25px;
+		h1 {
+			font-size: 2.2rem;
+			font-weight: 700;
+		}
+	}
+
+	.section-container {
+		grid-template-columns: repeat(3, 1fr);
+		max-width: 1050px;
+		margin-bottom: 35px;
+	}
+
+	.product-cards {
+		min-height: 400px;
+
+		img {
+			width: 250px;
+			height: 250px;
+		}
 	}
 }
