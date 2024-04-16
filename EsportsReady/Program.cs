@@ -1,4 +1,5 @@
 using EsportsReady.Data;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -7,6 +8,14 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddDbContext<ProductContext>(options =>
     options.UseSqlServer(
         builder.Configuration.GetConnectionString("DefaultConnection")));
+
+// Initialise identity services.
+// Overrides the default password options:
+builder.Services.AddIdentity<IdentityUser, IdentityRole>(options =>
+{
+    options.Password.RequiredLength = 10;
+    options.Password.RequiredUniqueChars = 3;
+}).AddEntityFrameworkStores<ProductContext>();
 
 builder.Services.AddControllersWithViews();
 
@@ -25,6 +34,7 @@ app.UseStaticFiles();
 
 app.UseRouting();
 
+app.UseAuthentication();
 app.UseAuthorization();
 
 app.MapControllerRoute(

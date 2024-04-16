@@ -1,4 +1,6 @@
-﻿<!DOCTYPE html>
+﻿@inject SignInManager<IdentityUser> _signInManager;
+
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8" />
@@ -18,9 +20,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap"
           rel="stylesheet" />
-
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.css" />
-
 </head>
 <body>
     <header class="primary-header">
@@ -36,10 +36,19 @@
                 <li><a asp-controller="" asp-action="">Support</a></li>
             </ul>
             <ul class="nav-icons">
-                <li><a asp-controller="" asp-action=""><i class="fa fa-magnifying-glass"></i></a></li>
-                <li><a asp-controller="" asp-action=""><i class="fa fa-user"></i></a></li>
-                <li><a asp-controller="" asp-action=""><i class="fa fa-cart-shopping"></i></a>
-                </li>
+                @if (_signInManager.IsSignedIn(User))
+                {
+                    <form method="post" asp-controller="Account" asp-action="Logout">
+                        <button type="submit">
+                            Logout @User.Identity.Name
+                        </button>
+                    </form>
+                } else
+                {
+                    <li><a asp-controller="" asp-action=""><i class="fa fa-magnifying-glass"></i></a></li>
+                    <li><a asp-controller="Account" asp-action="Login"><i class="fa fa-user"></i></a></li>
+                    <li><a asp-controller="" asp-action=""><i class="fa fa-cart-shopping"></i></a></li>
+                }
             </ul>
         </nav>
     </header>

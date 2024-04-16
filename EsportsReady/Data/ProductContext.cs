@@ -1,9 +1,10 @@
 ﻿using EsportsReady.Models;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 
 namespace EsportsReady.Data
 {
-    public class ProductContext : DbContext
+    public class ProductContext : IdentityDbContext
     {
         public ProductContext(DbContextOptions<ProductContext> options) 
             : base(options)
@@ -17,6 +18,7 @@ namespace EsportsReady.Data
         // seed the table with some arbitrary data...
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+            base.OnModelCreating(modelBuilder);
             modelBuilder.Seed();
         }
     }
