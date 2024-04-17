@@ -10,7 +10,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace EsportsReady.Migrations
 {
-    [DbContext(typeof(ProductContext))]
+    [DbContext(typeof(ShopContext))]
     partial class ProductContextModelSnapshot : ModelSnapshot
     {
         protected override void BuildModel(ModelBuilder modelBuilder)

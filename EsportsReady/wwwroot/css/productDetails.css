@@ -66,16 +66,6 @@
   margin-bottom: 10px;
   letter-spacing: 0.5px;
 }
-#popup a {
-  color: black;
-  font-weight: 400;
-  text-align: center;
-  cursor: pointer;
-  transition: transform 0.2s;
-}
-#popup a:active {
-  transform: scale(0.98);
-}
 
 .hero-specification {
   margin-block: 25px;
@@ -238,16 +228,6 @@
     font-weight: 400;
     margin-bottom: 10px;
     letter-spacing: 0.5px;
-  }
-  #popup a {
-    color: black;
-    font-weight: 400;
-    text-align: center;
-    cursor: pointer;
-    transition: transform 0.2s;
-  }
-  #popup a:active {
-    transform: scale(0.98);
   }
   .hero-specification header {
     font-weight: 700;

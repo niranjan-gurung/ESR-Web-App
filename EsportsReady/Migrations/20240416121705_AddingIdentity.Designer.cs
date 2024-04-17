@@ -11,7 +11,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace EsportsReady.Migrations
 {
-    [DbContext(typeof(ProductContext))]
+    [DbContext(typeof(ShopContext))]
     [Migration("20240416121705_AddingIdentity")]
     partial class AddingIdentity
     {

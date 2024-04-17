@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore;
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
-builder.Services.AddDbContext<ProductContext>(options =>
+builder.Services.AddDbContext<ShopContext>(options =>
     options.UseSqlServer(
         builder.Configuration.GetConnectionString("DefaultConnection")));
 
@@ -15,7 +15,7 @@ builder.Services.AddIdentity<IdentityUser, IdentityRole>(options =>
 {
     options.Password.RequiredLength = 10;
     options.Password.RequiredUniqueChars = 3;
-}).AddEntityFrameworkStores<ProductContext>();
+}).AddEntityFrameworkStores<ShopContext>();
 
 builder.Services.AddControllersWithViews();
 

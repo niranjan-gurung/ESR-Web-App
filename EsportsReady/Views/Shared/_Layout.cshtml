@@ -30,7 +30,7 @@
         <nav class="primary-nav">
             <ul class="nav-links">
                 <li><a class="brand-logo" asp-controller="Home" asp-action="Index">ESR</a></li>
-                <li><a asp-controller="Product" asp-action="GamingPCs">Gaming PCs</a></li>
+                <li><a asp-controller="Product" asp-action="ListAll">Gaming PCs</a></li>
                 <li><a asp-controller="" asp-action="">Peripherals</a></li>
                 <li><a asp-controller="" asp-action="">Components</a></li>
                 <li><a asp-controller="" asp-action="">Support</a></li>
@@ -48,6 +48,11 @@
                     <li><a asp-controller="" asp-action=""><i class="fa fa-magnifying-glass"></i></a></li>
                     <li><a asp-controller="Account" asp-action="Login"><i class="fa fa-user"></i></a></li>
                     <li><a asp-controller="" asp-action=""><i class="fa fa-cart-shopping"></i></a></li>
+                    @* <li><a href="#login-popup" rel="modal:open"><i class="fa fa-user"></i></a></li>
+                    <div id="login-popup" class="modal">
+                        <p><a asp-controller="" asp-action="">Account</a></p>
+                        <p><a asp-controller="Account" asp-action="Login">Login</a></p>
+                    </div> *@
                 }
             </ul>
         </nav>

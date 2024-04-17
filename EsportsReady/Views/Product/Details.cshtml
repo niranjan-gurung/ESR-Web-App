@@ -29,7 +29,7 @@
 <main>
     <div class="hero-section">
         <div class="back">
-            <a asp-controller="Product" asp-action="GamingPCs"><-Back to Products</a>
+            <a asp-controller="Product" asp-action="ListAll"><-Back to Products</a>
         </div>
 
         <div class="content">
@@ -82,7 +82,7 @@
 
         <section class="sticky-right">
             <p class="title-price">£@Model.Price.00</p>
-            <a asp-controller="" asp-action="">Add to Cart</a>
+            <a asp-controller="ShoppingCart" asp-action="AddToCart" asp-route-id="@Model.Id">Add to Cart</a>
         </section>
     </div>
 

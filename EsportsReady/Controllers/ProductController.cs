@@ -7,14 +7,14 @@ namespace EsportsReady.Controllers
 {
     public class ProductController : Controller
     {
-        private readonly ProductContext _context;
-        public ProductController(ProductContext context)
+        private readonly ShopContext _context;
+        public ProductController(ShopContext context)
         {
             _context = context;
         }
 
         // GET: return All Gaming pcs
-        public async Task<IActionResult> GamingPCs()
+        public async Task<IActionResult> ListAll()
         {
             // grabs all products and its description from DB, through FK link.
             List<Product> products = await _context.Products
@@ -23,7 +23,7 @@ namespace EsportsReady.Controllers
         }
 
         // GET/id: return specific gaming pc (id based)
-        public async Task<IActionResult> GamingPC(int? id) 
+        public async Task<IActionResult> Details(int? id) 
         {
             if (id == null || id == 0)
                 return NotFound();

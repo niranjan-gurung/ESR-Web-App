@@ -10,7 +10,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace EsportsReady.Migrations
 {
-    [DbContext(typeof(ProductContext))]
+    [DbContext(typeof(ShopContext))]
     [Migration("20240320173924_SeedProductTableWithDefaultValues")]
     partial class SeedProductTableWithDefaultValues
     {

@@ -1,0 +1,16 @@
+﻿@model ShoppingCartViewModel
+
+@{
+    ViewData["Title"] = "View Cart";
+}
+
+<h1>Shopping Cart</h1>
+
+<div>
+    @foreach (var item in Model.CartItems)
+    {
+        <p>@item.Id</p>
+        <p>@item.Product</p>
+        <p>@item.Quantity</p>
+    }
+</div>

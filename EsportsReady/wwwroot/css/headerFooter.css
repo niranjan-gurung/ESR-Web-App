@@ -39,6 +39,12 @@
 .primary-nav .nav-icons li {
   margin: 0px 10px;
 }
+.primary-nav .nav-icons li a {
+  color: white;
+}
+.primary-nav .nav-icons li a:hover {
+  color: #a1a1a1;
+}
 
 footer {
   background: rgb(47, 47, 47);

@@ -39,8 +39,17 @@
 
 	.nav-icons {
 		display: flex;
+
 		li {
 			margin: 0px 10px;
+
+			a {
+				color: white;
+
+				&:hover {
+					color: #a1a1a1;
+				}
+			}
 		}
 	}
 }

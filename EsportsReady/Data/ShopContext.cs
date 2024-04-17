@@ -4,9 +4,9 @@ using Microsoft.EntityFrameworkCore;
 
 namespace EsportsReady.Data
 {
-    public class ProductContext : IdentityDbContext
+    public class ShopContext : IdentityDbContext
     {
-        public ProductContext(DbContextOptions<ProductContext> options) 
+        public ShopContext(DbContextOptions<ShopContext> options) 
             : base(options)
         {
             
