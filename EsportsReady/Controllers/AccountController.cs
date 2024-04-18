@@ -1,4 +1,5 @@
 ﻿using EsportsReady.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 
@@ -56,7 +57,7 @@ namespace EsportsReady.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> Login(Login model)
+        public async Task<IActionResult> Login(Login model, string returnUrl)
         {
             if (ModelState.IsValid)
             {
@@ -67,7 +68,12 @@ namespace EsportsReady.Controllers
                     false);
 
                 if (result.Succeeded)
-                    return RedirectToAction("Index", "Home");
+                {
+                    if (!string.IsNullOrEmpty(returnUrl))
+                        return LocalRedirect(returnUrl);
+                    else
+                        return RedirectToAction("Index", "Home");
+                }
 
                 ModelState.AddModelError("", "Invalid Login Attempt");
             }
