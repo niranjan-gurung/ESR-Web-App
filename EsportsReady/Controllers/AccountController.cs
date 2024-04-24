@@ -57,7 +57,7 @@ namespace EsportsReady.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> Login(Login model, string returnUrl)
+        public async Task<IActionResult> Login(Login model, string? returnUrl)
         {
             if (ModelState.IsValid)
             {

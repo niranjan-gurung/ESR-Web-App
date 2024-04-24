@@ -46,6 +46,25 @@
   color: #a1a1a1;
 }
 
+#login-popup {
+  text-align: center;
+  text-decoration: none;
+}
+#login-popup a {
+  color: black;
+}
+#login-popup a:hover {
+  text-decoration: underline;
+}
+#login-popup button {
+  border: none;
+  background: none;
+}
+#login-popup button:hover {
+  text-decoration: underline;
+  cursor: pointer;
+}
+
 footer {
   background: rgb(47, 47, 47);
   background: linear-gradient(180deg, rgb(47, 47, 47) 0%, rgb(31, 31, 31) 39%);

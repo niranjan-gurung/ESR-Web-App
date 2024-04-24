@@ -51,6 +51,30 @@
 				}
 			}
 		}
+
+	}
+}
+
+#login-popup {
+	text-align: center;
+	text-decoration: none;
+
+	a {
+		color: black;
+
+		&:hover {
+			text-decoration: underline;
+		}
+	}
+
+	button {
+		border: none;
+		background: none;
+
+		&:hover {
+			text-decoration: underline;
+			cursor: pointer;
+		}
 	}
 }
 
