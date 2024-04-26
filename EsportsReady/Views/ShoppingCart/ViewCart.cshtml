@@ -4,36 +4,77 @@
     ViewData["Title"] = "View Cart";
 }
 
-<h1>Shopping Cart</h1>
+<style type="text/css">
+    
+    h1 {
+        color: red;
+    }
 
-<table>
-    <thead>
-        <tr>
-            <th>Name</th>
-            <th>Price</th>
-            <th>Quantity</th>
-            <th>Subtotal</th>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach (var item in Model.CartItems)
-        {
-            <tr>
-                <td>@item.Product.Title</td>
-                <td>@item.Product.Price.ToString("C")</td>
-                <td>@item.Quantity</td>
-                <td>@((item.Product.Price * item.Quantity).ToString("C"))</td>
-                <td>
-                    <a asp-controller="ShoppingCart" asp-action="RemoveItem" asp-route-id="@item.Product.Id">Remove</a>
-                </td>
-            </tr>
+    .container {
+        margin: 20px;
+    }
+    
+    table {
+        border-collapse: collapse;
+
+        thead th {
+            text-align: left;
+            width: 120px;
+            font-weight: 700;
         }
-        <tr>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td>Total:</td>
-            <td>@Model.TotalPrice.ToString("C")</td>
-        </tr>
-    </tbody>
-</table>
+
+        tbody {
+            tr td {
+                height: 40px;
+            }
+
+            tr:nth-child(even) {
+                background-color: #E6E6E6;
+            }
+
+            tr:last-child {
+                font-weight: 700;
+            }
+        }
+    
+        tr {
+            border-bottom: 1px solid black;
+        }
+    }
+</style>
+
+<div class="container">
+    <h1>Shopping Cart</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Price</th>
+                <th>Quantity</th>
+                <th>Subtotal</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model.CartItems)
+            {
+                <tr>
+                    <td>@item.Product.Title</td>
+                    <td>@item.Product.Price.ToString("C")</td>
+                    <td>@item.Quantity</td>
+                    <td>@((item.Product.Price * item.Quantity).ToString("C"))</td>
+                    <td>
+                        <a asp-controller="ShoppingCart" asp-action="RemoveItem" asp-route-id="@item.Product.Id">Remove</a>
+                    </td>
+                </tr>
+            }
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td>Total:</td>
+                <td>@Model.TotalPrice.ToString("C")</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
