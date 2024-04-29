@@ -4,77 +4,70 @@
     ViewData["Title"] = "View Cart";
 }
 
-<style type="text/css">
-    
-    h1 {
-        color: red;
-    }
-
-    .container {
-        margin: 20px;
-    }
-    
-    table {
-        border-collapse: collapse;
-
-        thead th {
-            text-align: left;
-            width: 120px;
-            font-weight: 700;
-        }
-
-        tbody {
-            tr td {
-                height: 40px;
-            }
-
-            tr:nth-child(even) {
-                background-color: #E6E6E6;
-            }
-
-            tr:last-child {
-                font-weight: 700;
-            }
-        }
-    
-        tr {
-            border-bottom: 1px solid black;
-        }
-    }
-</style>
+<head>
+    <link rel="stylesheet" href="~/css/cart.css" asp-append-version="true" />
+</head>
 
 <div class="container">
-    <h1>Shopping Cart</h1>
+    <section class="lhs-content">
+        <header class="lhs-header">
+            <h1>Cart</h1>
+            <p>( @Model.TotalQuantity )</p>
+        </header>
 
-    <table>
-        <thead>
-            <tr>
-                <th>Name</th>
-                <th>Price</th>
-                <th>Quantity</th>
-                <th>Subtotal</th>
-            </tr>
-        </thead>
-        <tbody>
+        <ul>
             @foreach (var item in Model.CartItems)
             {
-                <tr>
-                    <td>@item.Product.Title</td>
-                    <td>@item.Product.Price.ToString("C")</td>
-                    <td>@item.Quantity</td>
-                    <td>@((item.Product.Price * item.Quantity).ToString("C"))</td>
-                    <td>
-                        <a asp-controller="ShoppingCart" asp-action="RemoveItem" asp-route-id="@item.Product.Id">Remove</a>
-                    </td>
-                </tr>
+                <li>
+                    <img src="@Url.Content(@item.Product.Image)"
+                         alt="image failed to load..."
+                         class="thumbnail" />
+                    <div>
+                        <p>@item.Product.Title</p>
+                        <p>@item.Quantity</p>
+                    </div>
+
+                    <div>
+                        <p>
+                            <a asp-controller="ShoppingCart" asp-action="RemoveItem" asp-route-id="@item.Product.Id">
+                                <i class="fa-solid fa-trash"></i>
+                            </a>
+                        </p>
+                        <p>@item.Product.Price.ToString("C")</p>
+                    </div>
+                    @* <p>@((item.Product.Price * item.Quantity).ToString("C"))</p> *@
+                </li>
             }
-            <tr>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td>Total:</td>
-                <td>@Model.TotalPrice.ToString("C")</td>
-            </tr>
-        </tbody>
-    </table>
+        </ul>
+    </section>
+
+    <section class="rhs-content">
+        <header class="rhs-header">
+            <h1>Summary</h1>
+            <p>Subtotal @Model.TotalPrice.ToString("C")</p>
+        </header>
+
+        <div class="taxes">
+            <p>Taxes</p>
+            <p>Included</p>
+        </div>
+        <div class="est-shipping">
+            <p>Estimated shipping</p>
+            <p>Calculated at checkout</p>
+        </div>
+
+        <div class="terms-conditions">
+            <input type="checkbox" name="terms" />
+            <label for="terms">I accept the terms and conditions of service</label>
+        </div>
+        
+        <div class="terms-conditions">
+            <input type="checkbox" name="privacy" />
+            <label for="privacy">I have read the privacy policy</label>
+        </div>
+
+        <div class="btn-parent">
+            <a asp-controller="" asp-action="" type="submit" class="btn">Proceed to Checkout</a>
+        </div>
+    </section>
 </div>

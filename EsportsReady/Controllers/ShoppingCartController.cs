@@ -51,7 +51,8 @@ namespace EsportsReady.Controllers
             var cartViewModel = new ShoppingCartViewModel()
             {
                 CartItems = cartItems,
-                TotalPrice = cartItems.Sum(item => item.Product.Price * item.Quantity)
+                TotalPrice = cartItems.Sum(item => item.Product.Price * item.Quantity),
+                TotalQuantity = cartItems.Count()
             };
 
             return View(cartViewModel);

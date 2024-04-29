@@ -26,5 +26,9 @@
   {
     "outputFile": "wwwroot/css/login-register.css",
     "inputFile": "wwwroot/css/login-register.scss"
+  },
+  {
+    "outputFile": "wwwroot/css/cart.css",
+    "inputFile": "wwwroot/css/cart.scss"
   }
 ]
