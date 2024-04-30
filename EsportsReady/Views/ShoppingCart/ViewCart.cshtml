@@ -19,27 +19,29 @@
             @foreach (var item in Model.CartItems)
             {
                 <li>
-                    <img src="@Url.Content(@item.Product.Image)"
-                         alt="image failed to load..."
-                         class="thumbnail" />
-                    <div>
-                        <p>@item.Product.Title</p>
-                        <div class="quantity-btn">
-                            <a asp-controller="ShoppingCart" asp-action="RemoveItem" asp-route-id="@item.Product.Id">-</a>
-                            <p>@item.Quantity</p>
-                            <a asp-controller="ShoppingCart" asp-action="AddToCart" asp-route-id="@item.Product.Id">+</a>
-                        </div>
+                    <div class="img-container">
+                        <img src="@Url.Content(@item.Product.Image)"
+                             alt="image failed to load..."
+                             class="thumbnail" />
                     </div>
 
-                    <div>
-                        <p>
+                    <div class="product-details">
+                        <div class="title-quantity">
+                            <h1>@item.Product.Title</h1>
+                            <div class="quantity-btn">
+                                <a asp-controller="ShoppingCart" asp-action="RemoveItem" asp-route-id="@item.Product.Id">-</a>
+                                <p>@item.Quantity</p>
+                                <a asp-controller="ShoppingCart" asp-action="AddToCart" asp-route-id="@item.Product.Id">+</a>
+                            </div>
+                        </div>
+
+                        <div class="delete-price">
                             <a asp-controller="ShoppingCart" asp-action="RemoveAll" asp-route-id="@item.Product.Id">
                                 <i class="fa-solid fa-trash"></i>
                             </a>
-                        </p>
-                        <p>@item.Product.Price.ToString("C")</p>
+                            <p>@item.Product.Price.ToString("C")</p>
+                        </div>
                     </div>
-                    @* <p>@((item.Product.Price * item.Quantity).ToString("C"))</p> *@
                 </li>
             }
         </ul>

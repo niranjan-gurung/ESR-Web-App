@@ -1,25 +1,31 @@
 ﻿.container {
 	display: flex;
 	max-width: 1200px;
-	margin-inline: auto;
-	margin-block: 50px;
+	margin: 50px auto;
 	justify-content: space-between;
-	gap: 25px;
+	gap: 30px;
 
 	.lhs-header {
 		display: flex;
 		justify-content: space-between;
 		align-items: center;
+		border-bottom: 1px solid #D9D9D9;
 
-		border-bottom: 1px solid black;
+		padding-block: 10px;
 
 		h1 {
 			font-size: 2rem;
 			font-weight: 700;
 		}
+
+		p {
+			font-weight: 500;
+		}
 	}
 
 	.rhs-header {
+		border-bottom: 1px solid #D9D9D9;
+
 		h1 {
 			font-size: 2rem;
 			font-weight: 700;
@@ -29,24 +35,80 @@
 
 .lhs-content {
 	flex: 2;
-	border: 1px solid red;
+	/*border: 1px solid red;*/
 
 	ul li {
 		display: flex;
+		border-bottom: 1px solid #D9D9D9;
+		gap: 25px;
+		padding-block: 20px;
 
-		.thumbnail {
-			width: 80px;
-			height: 80px;
+		.img-container {
+			width: 100px;
+
+			.thumbnail {
+				width: inherit;
+				height: 100px;
+				object-fit: cover;
+			}
 		}
-	}
 
-	.quantity-btn {
-		display: flex;
-		max-width: 50%;
-		justify-content: center;
-		
-		border: 1px solid green;
-		border-radius: 10%;
+		.product-details {
+			width: 100%;
+			display: flex;
+			justify-content: space-between;
+
+			div {
+				display: flex;
+				flex-direction: column;
+				justify-content: space-around;
+			}
+
+			.title-quantity {
+				h1 {
+					font-size: 1.2rem;
+					font-weight: 600;
+				}
+			}
+
+			.delete-price {
+				a {
+					display: inline-block;
+					color: #3d3d3d;
+
+					&:hover {
+						color: #ed2d1f;
+					}
+
+					&:active {
+						color: #b52c22;
+					}
+				}
+
+				p {
+					color: #5c5c5c;
+					font-size: 0.95rem;
+				}
+			}
+
+			.quantity-btn {
+				display: flex;
+				max-width: 70%;
+				flex-direction: row;
+				justify-content: center;
+				padding: 15px 8px;
+				border: 1px solid #D9D9D9;
+				border-radius: 10%;
+
+				p {
+					margin-inline: 10px;
+				}
+			}
+
+			&:last-child {
+				text-align: right;
+			}
+		}
 	}
 }
 
@@ -55,7 +117,7 @@
 	border: 1px solid blue;
 
 	.rhs-inner {
-		background: red;
+		background: #f2f2f2;
 	}
 
 	.btn-parent {
