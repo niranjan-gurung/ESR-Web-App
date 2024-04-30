@@ -1,12 +1,17 @@
 ﻿.container {
-	margin: 20px;
 	display: flex;
+	max-width: 1200px;
+	margin-inline: auto;
+	margin-block: 50px;
+	justify-content: space-between;
+	gap: 25px;
 
 	.lhs-header {
 		display: flex;
-		/*max-width: 900px;
-		justify-content: space-between;*/
+		justify-content: space-between;
 		align-items: center;
+
+		border-bottom: 1px solid black;
 
 		h1 {
 			font-size: 2rem;
@@ -23,8 +28,8 @@
 }
 
 .lhs-content {
-	background-color: red;
 	flex: 2;
+	border: 1px solid red;
 
 	ul li {
 		display: flex;
@@ -34,11 +39,24 @@
 			height: 80px;
 		}
 	}
+
+	.quantity-btn {
+		display: flex;
+		max-width: 50%;
+		justify-content: center;
+		
+		border: 1px solid green;
+		border-radius: 10%;
+	}
 }
 
 .rhs-content {
-	background-color: blue;
 	flex: 1;
+	border: 1px solid blue;
+
+	.rhs-inner {
+		background: red;
+	}
 
 	.btn-parent {
 		text-align: center;

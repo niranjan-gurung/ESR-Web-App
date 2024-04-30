@@ -19,7 +19,7 @@ namespace EsportsReady.Controllers
 
         public IActionResult AddToCart(int id)
         {
-            var cartItems = HttpContext.Session.Get<List<ShoppingCartItem>>("Cart") ?? new List<ShoppingCartItem>();
+            var cartItems = HttpContext.Session.Get<List<ShoppingCartItem>>("Cart") ?? [];
 
             var productToAdd = _context.Products.FirstOrDefault(p => p.Id == id);
 
@@ -46,7 +46,7 @@ namespace EsportsReady.Controllers
 
         public IActionResult ViewCart()
         {
-            var cartItems = HttpContext.Session.Get<List<ShoppingCartItem>>("Cart") ?? new List<ShoppingCartItem>();
+            var cartItems = HttpContext.Session.Get<List<ShoppingCartItem>>("Cart") ?? [];
 
             var cartViewModel = new ShoppingCartViewModel()
             {
@@ -60,7 +60,7 @@ namespace EsportsReady.Controllers
 
         public IActionResult RemoveItem(int id)
         {
-            var cartItems = HttpContext.Session.Get<List<ShoppingCartItem>>("Cart") ?? new List<ShoppingCartItem>();
+            var cartItems = HttpContext.Session.Get<List<ShoppingCartItem>>("Cart") ?? [];
 
             var itemToRemove = cartItems.FirstOrDefault(item => item.Product.Id == id);
 
@@ -71,6 +71,19 @@ namespace EsportsReady.Controllers
                 else
                     cartItems.Remove(itemToRemove);
             }
+
+            HttpContext.Session.Set("Cart", cartItems);
+
+            return RedirectToAction("ViewCart");
+        }
+
+        public IActionResult RemoveAll(int id)
+        {
+            var cartItems = HttpContext.Session.Get<List<ShoppingCartItem>>("Cart") ?? [];
+
+            var itemToRemove = cartItems.FirstOrDefault(item => item.Product.Id == id);
+
+            cartItems.RemoveAll(item => item == itemToRemove);
 
             HttpContext.Session.Set("Cart", cartItems);
 

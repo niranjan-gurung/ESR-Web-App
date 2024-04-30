@@ -24,12 +24,16 @@
                          class="thumbnail" />
                     <div>
                         <p>@item.Product.Title</p>
-                        <p>@item.Quantity</p>
+                        <div class="quantity-btn">
+                            <a asp-controller="ShoppingCart" asp-action="RemoveItem" asp-route-id="@item.Product.Id">-</a>
+                            <p>@item.Quantity</p>
+                            <a asp-controller="ShoppingCart" asp-action="AddToCart" asp-route-id="@item.Product.Id">+</a>
+                        </div>
                     </div>
 
                     <div>
                         <p>
-                            <a asp-controller="ShoppingCart" asp-action="RemoveItem" asp-route-id="@item.Product.Id">
+                            <a asp-controller="ShoppingCart" asp-action="RemoveAll" asp-route-id="@item.Product.Id">
                                 <i class="fa-solid fa-trash"></i>
                             </a>
                         </p>
@@ -42,32 +46,34 @@
     </section>
 
     <section class="rhs-content">
-        <header class="rhs-header">
-            <h1>Summary</h1>
-            <p>Subtotal @Model.TotalPrice.ToString("C")</p>
-        </header>
+        <div class="rhs-inner">
+            <header class="rhs-header">
+                <h1>Summary</h1>
+                <p>Subtotal @Model.TotalPrice.ToString("C")</p>
+            </header>
 
-        <div class="taxes">
-            <p>Taxes</p>
-            <p>Included</p>
-        </div>
-        <div class="est-shipping">
-            <p>Estimated shipping</p>
-            <p>Calculated at checkout</p>
-        </div>
+            <div class="taxes">
+                <p>Taxes</p>
+                <p>Included</p>
+            </div>
+            <div class="est-shipping">
+                <p>Estimated shipping</p>
+                <p>Calculated at checkout</p>
+            </div>
 
-        <div class="terms-conditions">
-            <input type="checkbox" name="terms" />
-            <label for="terms">I accept the terms and conditions of service</label>
-        </div>
+            <div class="terms-conditions">
+                <input type="checkbox" name="terms" />
+                <label for="terms">I accept the terms and conditions of service</label>
+            </div>
         
-        <div class="terms-conditions">
-            <input type="checkbox" name="privacy" />
-            <label for="privacy">I have read the privacy policy</label>
-        </div>
+            <div class="terms-conditions">
+                <input type="checkbox" name="privacy" />
+                <label for="privacy">I have read the privacy policy</label>
+            </div>
 
-        <div class="btn-parent">
-            <a asp-controller="" asp-action="" type="submit" class="btn">Proceed to Checkout</a>
+            <div class="btn-parent">
+                <a asp-controller="" asp-action="" type="submit" class="btn">Proceed to Checkout</a>
+            </div>
         </div>
     </section>
 </div>
