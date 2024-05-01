@@ -51,7 +51,10 @@
         <div class="rhs-inner">
             <header class="rhs-header">
                 <h1>Summary</h1>
-                <p>Subtotal @Model.TotalPrice.ToString("C")</p>
+                <div class="sub-header">
+                    <h2>Subtotal</h2>
+                    <p>@Model.TotalPrice.ToString("C")</p>
+                </div>
             </header>
 
             <div class="taxes">
@@ -64,13 +67,15 @@
             </div>
 
             <div class="terms-conditions">
-                <input type="checkbox" name="terms" />
-                <label for="terms">I accept the terms and conditions of service</label>
-            </div>
+                <div class="terms">
+                    <input type="checkbox" name="terms" />
+                    <label for="terms">I accept the <a href="#">terms and conditions of service</a></label>
+                </div>
         
-            <div class="terms-conditions">
-                <input type="checkbox" name="privacy" />
-                <label for="privacy">I have read the privacy policy</label>
+                <div class="privacy">
+                    <input type="checkbox" name="privacy" />
+                    <label for="privacy">I have read the <a href="#">privacy policy</a></label>
+                </div>
             </div>
 
             <div class="btn-parent">
