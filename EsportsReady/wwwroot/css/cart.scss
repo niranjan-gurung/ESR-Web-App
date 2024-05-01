@@ -1,4 +1,7 @@
 ﻿.container {
+	max-width: 400px;
+	margin-inline: auto;
+
 	.lhs-header {
 		display: flex;
 		justify-content: space-between;
@@ -9,6 +12,29 @@
 		h1 {
 			font-size: 1.2rem;
 			font-weight: 700;
+		}
+	}
+
+	.rhs-header {
+		border-bottom: 1px solid #D9D9D9;
+		margin-bottom: 10px;
+
+		h1, .sub-header {
+			padding-bottom: 10px;
+			text-align: center;
+		}
+
+		h1 {
+			font-size: 2rem;
+			font-weight: 700;
+
+			padding-top: 10px;
+		}
+
+		.sub-header {
+			h2 {
+				font-weight: 500;
+			}
 		}
 	}
 }
@@ -88,10 +114,95 @@
 	}
 }
 
-@media screen and (min-width: 500px) {
+.rhs-content {
+	.rhs-inner {
+		background: #f2f2f2;
+		padding: 15px;
+	}
+
+	.taxes, .est-shipping {
+		display: flex;
+		justify-content: space-between;
+		padding-bottom: 10px;
+		font-weight: 500;
+		font-size: 0.9rem;
+	}
+
+	.terms-conditions {
+		margin-block: 15px;
+		font-size: 0.9rem;
+
+		.terms {
+			margin-bottom: 5px;
+		}
+
+		a {
+			color: #0D21D9;
+
+			&:hover {
+				color: #5a68e6;
+			}
+		}
+	}
+
+	.btn-parent {
+		text-align: center;
+
+		.btn {
+			display: inline-block;
+			border: none;
+			padding: 10px 50px;
+			background-color: #8528e1;
+			color: white;
+			font-weight: 400;
+			border-radius: 8px;
+			box-shadow: 0px 5px 10px 1px rgba(72, 66, 80, 0.5);
+			cursor: pointer;
+			transition: transform 0.2s;
+
+			&:hover {
+				background-color: #622999;
+				transform: scale(1.03);
+			}
+
+			&:active {
+				transform: scale(0.98);
+			}
+		}
+	}
 }
 
-@media screen and (min-width: 1000px) {
+@media screen and (min-width: 700px) {
+	.container {
+		display: flex;
+		max-width: 900px;
+		margin-block: 50px;
+		gap: 30px;
+
+		.rhs-header {
+			h1 {
+				text-align: left;
+			}
+
+			.sub-header {
+				display: flex;
+				justify-content: space-between;
+			}
+		}
+	}
+
+	.lhs-content {
+		flex: 1;
+	}
+
+	.rhs-content {
+		.rhs-inner {
+			border-radius: 10px;
+		}
+	}
+}
+
+@media screen and (min-width: 1200px) {
 	.container {
 		display: flex;
 		max-width: 1300px;
