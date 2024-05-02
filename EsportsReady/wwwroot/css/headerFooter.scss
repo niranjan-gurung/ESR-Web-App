@@ -52,6 +52,20 @@
 			}
 		}
 
+		.wrapper {
+			position: relative;
+
+			span {
+				background-color: #8528e1;
+				color: white;
+				position: absolute;
+				top: -10px;
+				right: -10px;
+				font-size: 0.9rem;
+				padding-inline: 5px;
+				border-radius: 50%;
+			}
+		}
 	}
 }
 
@@ -157,6 +171,10 @@ footer {
 			display: flex;
 			gap: 1rem;
 		}
+
+		.nav-icons {
+			margin-top: 10px;
+		}
 	}
 
 	.footer-container {
@@ -219,6 +237,8 @@ footer {
 		.nav-icons {
 			flex-grow: 1;
 			justify-content: end;
+
+			margin-top: 0px;
 		}
 	}
 

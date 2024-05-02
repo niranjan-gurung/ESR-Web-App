@@ -45,6 +45,19 @@
 .primary-nav .nav-icons li a:hover {
   color: #a1a1a1;
 }
+.primary-nav .nav-icons .wrapper {
+  position: relative;
+}
+.primary-nav .nav-icons .wrapper span {
+  background-color: #8528e1;
+  color: white;
+  position: absolute;
+  top: -10px;
+  right: -10px;
+  font-size: 0.9rem;
+  padding-inline: 5px;
+  border-radius: 50%;
+}
 
 #login-popup {
   text-align: center;
@@ -132,6 +145,9 @@ footer {
     display: flex;
     gap: 1rem;
   }
+  .primary-nav .nav-icons {
+    margin-top: 10px;
+  }
   .footer-container {
     max-width: 700px;
     margin-inline: auto;
@@ -181,6 +197,7 @@ footer {
   .primary-nav .nav-icons {
     flex-grow: 1;
     justify-content: end;
+    margin-top: 0px;
   }
   footer {
     padding-block: 40px;

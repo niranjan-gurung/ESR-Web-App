@@ -1,4 +1,7 @@
 ﻿@inject SignInManager<IdentityUser> _signInManager;
+@{
+    var itemCount = Context.Session.Get<List<ShoppingCartItem>>("Cart") ?? [];
+}
 
 <!DOCTYPE html>
 <html lang="en">
@@ -48,7 +51,17 @@
                             </button>
                         </form>
                     </div>
-                    <li><a asp-controller="ShoppingCart" asp-action="ViewCart"><i class="fa fa-cart-shopping"></i></a></li>
+                    <li>
+                        <div class="wrapper">
+                            <a asp-controller="ShoppingCart" asp-action="ViewCart">
+                                <i class="fa fa-cart-shopping"></i>
+                                @if (@itemCount.Count >= 1)
+                                {
+                                    <span>@itemCount.Count</span>
+                                } 
+                            </a>
+                        </div>
+                    </li>
                 } else
                 {
                     <li><a asp-controller="" asp-action=""><i class="fa fa-magnifying-glass"></i></a></li>

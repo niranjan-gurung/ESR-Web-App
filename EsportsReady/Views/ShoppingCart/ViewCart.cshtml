@@ -8,79 +8,95 @@
     <link rel="stylesheet" href="~/css/cart.css" asp-append-version="true" />
 </head>
 
-<div class="container">
-    <section class="lhs-content">
-        <header class="lhs-header">
-            <h1>Cart</h1>
-            <p>( @Model.TotalQuantity )</p>
-        </header>
-
-        <ul>
-            @foreach (var item in Model.CartItems)
-            {
-                <li>
-                    <div class="img-container">
-                        <img src="@Url.Content(@item.Product.Image)"
-                             alt="image failed to load..."
-                             class="thumbnail" />
-                    </div>
-
-                    <div class="product-details">
-                        <div class="title-quantity">
-                            <h1>@item.Product.Title</h1>
-                            <div class="quantity-btn">
-                                <a asp-controller="ShoppingCart" asp-action="RemoveItem" asp-route-id="@item.Product.Id">-</a>
-                                <p>@item.Quantity</p>
-                                <a asp-controller="ShoppingCart" asp-action="AddToCart" asp-route-id="@item.Product.Id">+</a>
-                            </div>
-                        </div>
-
-                        <div class="delete-price">
-                            <a asp-controller="ShoppingCart" asp-action="RemoveAll" asp-route-id="@item.Product.Id">
-                                <i class="fa-solid fa-trash"></i>
-                            </a>
-                            <p>@item.Product.Price.ToString("C")</p>
-                        </div>
-                    </div>
-                </li>
-            }
-        </ul>
-    </section>
-
-    <section class="rhs-content">
-        <div class="rhs-inner">
-            <header class="rhs-header">
-                <h1>Summary</h1>
-                <div class="sub-header">
-                    <h2>Subtotal</h2>
-                    <p>@Model.TotalPrice.ToString("C")</p>
+@if (@Model.TotalQuantity == 0)
+{ 
+    <div class="container">
+        <div class="wrapper-empty">
+            <div class="wrapper-inner">
+                <h1>Your cart is empty</h1>
+                <p>Check out our list of products. We have a gaming PC for all price ranges!</p>
+                <div class="btn-parent">
+                    <a asp-controller="Product" asp-action="ListAll" class="btn">Continue Shopping</a>
                 </div>
-            </header>
-
-            <div class="taxes">
-                <p>Taxes</p>
-                <p>Included</p>
-            </div>
-            <div class="est-shipping">
-                <p>Estimated shipping</p>
-                <p>Calculated at checkout</p>
-            </div>
-
-            <div class="terms-conditions">
-                <div class="terms">
-                    <input type="checkbox" name="terms" />
-                    <label for="terms">I accept the <a href="#">terms and conditions of service</a></label>
-                </div>
-        
-                <div class="privacy">
-                    <input type="checkbox" name="privacy" />
-                    <label for="privacy">I have read the <a href="#">privacy policy</a></label>
-                </div>
-            </div>
-
-            <div class="btn-parent">
-                <a asp-controller="" asp-action="" type="submit" class="btn">Proceed to Checkout</a>
             </div>
         </div>
-    </section>
-</div>
+    </div>
+} else
+{
+    <div class="container">
+        <section class="lhs-content">
+            <header class="lhs-header">
+                <h1>Cart</h1>
+                <p>( @Model.TotalQuantity )</p>
+            </header>
+
+            <ul>
+                @foreach (var item in Model.CartItems)
+                {
+                    <li>
+                        <div class="img-container">
+                            <img src="@Url.Content(@item.Product.Image)"
+                                    alt="image failed to load..."
+                                    class="thumbnail" />
+                        </div>
+
+                        <div class="product-details">
+                            <div class="title-quantity">
+                                <h1>@item.Product.Title</h1>
+                                <div class="quantity-btn">
+                                    <a asp-controller="ShoppingCart" asp-action="RemoveItem" asp-route-id="@item.Product.Id">-</a>
+                                    <p>@item.Quantity</p>
+                                    <a asp-controller="ShoppingCart" asp-action="AddToCart" asp-route-id="@item.Product.Id">+</a>
+                                </div>
+                            </div>
+
+                            <div class="delete-price">
+                                <a asp-controller="ShoppingCart" asp-action="RemoveAll" asp-route-id="@item.Product.Id">
+                                    <i class="fa-solid fa-trash"></i>
+                                </a>
+                                <p>@item.Product.Price.ToString("C")</p>
+                            </div>
+                        </div>
+                    </li>
+                }
+            </ul>
+        </section>
+
+        <section class="rhs-content">
+            <div class="rhs-inner">
+                <header class="rhs-header">
+                    <h1>Summary</h1>
+                    <div class="sub-header">
+                        <h2>Subtotal</h2>
+                        <p>@Model.TotalPrice.ToString("C")</p>
+                    </div>
+                </header>
+
+                <div class="taxes">
+                    <p>Taxes</p>
+                    <p>Included</p>
+                </div>
+                <div class="est-shipping">
+                    <p>Estimated shipping</p>
+                    <p>Calculated at checkout</p>
+                </div>
+
+                <div class="terms-conditions">
+                    <div class="terms">
+                        <input type="checkbox" name="terms" />
+                        <label for="terms">I accept the <a href="#">terms and conditions of service</a></label>
+                    </div>
+
+                    <div class="privacy">
+                        <input type="checkbox" name="privacy" />
+                        <label for="privacy">I have read the <a href="#">privacy policy</a></label>
+                    </div>
+                </div>
+
+                <div class="btn-parent">
+                    <a asp-controller="" asp-action="" class="btn">Proceed to Checkout</a>
+                </div>
+            </div>
+        </section>
+    </div>
+}
