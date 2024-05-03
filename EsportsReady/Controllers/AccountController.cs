@@ -91,6 +91,9 @@ namespace EsportsReady.Controllers
         public async Task<IActionResult> Logout()
         {
             await _signInManager.SignOutAsync();
+            // remove all instance of 'Cart' key from session on logout:
+            HttpContext.Session.Remove("Cart");
+
             return RedirectToAction("Index", "Home");
         }
     }
