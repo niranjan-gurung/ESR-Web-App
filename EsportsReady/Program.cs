@@ -14,11 +14,8 @@ builder.Services.AddDbContext<ShopContext>(options =>
 
 // Initialise identity services.
 // Overrides the default password options:
-builder.Services.AddIdentity<IdentityUser, IdentityRole>(options =>
-{
-    options.Password.RequiredLength = 10;
-    options.Password.RequiredUniqueChars = 3;
-}).AddEntityFrameworkStores<ShopContext>();
+builder.Services.AddIdentity<IdentityUser, IdentityRole>()
+    .AddEntityFrameworkStores<ShopContext>();
 
 builder.Services.AddControllersWithViews();
 

@@ -8,7 +8,7 @@ using Microsoft.AspNetCore.Authorization;
 
 namespace EsportsReady.Controllers
 {
-    [Authorize]
+    [Authorize(Roles = "Admin, User")]
     public class ShoppingCartController : Controller
     {
         private readonly ShopContext _context;

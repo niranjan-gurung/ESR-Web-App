@@ -9,6 +9,7 @@ namespace EsportsReady.Controllers
     {
         private readonly UserManager<IdentityUser> _userManager;
         private readonly SignInManager<IdentityUser> _signInManager;
+        private readonly RoleManager<IdentityRole> _roleManager;
 
         public AccountController(
             UserManager<IdentityUser> userManager,
@@ -39,11 +40,16 @@ namespace EsportsReady.Controllers
 
                 if (result.Succeeded) 
                 {
+                    /* every new user is given 'User' role by default.
+                     * admin role was assigned manually... */
+                    await _userManager.AddToRoleAsync(user, "User");
+
+                    // sign in after successful register:
                     await _signInManager.SignInAsync(user, isPersistent: false);
                     return RedirectToAction("Index", "Home");
                 }
 
-                foreach (var err in result.Errors)
+                foreach (IdentityError err in result.Errors)
                     ModelState.AddModelError("", err.Description);
             }
 

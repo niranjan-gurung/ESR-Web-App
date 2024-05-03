@@ -1,0 +1,19 @@
+﻿@model IEnumerable<IdentityRole>
+
+@{
+    ViewData["Title"] = "List Roles";
+}
+
+<h1>List of roles</h1>
+
+<p>
+    @if (Model.Any()) 
+    {
+        foreach(var role in Model)
+        {
+            <p>@role.Name</p>
+        }
+    } else {
+        <h2>no roles</h2>
+    }
+</p>
