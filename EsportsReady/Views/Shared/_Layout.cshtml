@@ -1,4 +1,5 @@
 ﻿@inject SignInManager<IdentityUser> _signInManager;
+@inject UserManager<IdentityUser> _userManager;
 @{
     var itemCount = Context.Session.Get<List<ShoppingCartItem>>("Cart") ?? [];
 }
@@ -37,6 +38,13 @@
                 <li><a asp-controller="" asp-action="">Peripherals</a></li>
                 <li><a asp-controller="" asp-action="">Components</a></li>
                 <li><a asp-controller="" asp-action="">Support</a></li>
+
+                @* if the signed in user has an admin role: *@
+                @if (_signInManager.IsSignedIn(User) && 
+                    await _userManager.IsInRoleAsync(_userManager.GetUserAsync(User).Result, "Admin"))
+                {
+                    <li><a asp-controller="" asp-action="">Admin</a></li>
+                }
             </ul>
             <ul class="nav-icons">
                 @if (_signInManager.IsSignedIn(User))
