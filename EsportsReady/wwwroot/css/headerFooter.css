@@ -39,11 +39,21 @@
 .primary-nav .nav-icons li {
   margin: 0px 10px;
 }
-.primary-nav .nav-icons li a {
+.primary-nav .nav-icons li a, .primary-nav .nav-icons li button {
   color: white;
 }
-.primary-nav .nav-icons li a:hover {
+.primary-nav .nav-icons li a:hover, .primary-nav .nav-icons li button:hover {
   color: #a1a1a1;
+}
+.primary-nav .nav-icons li:first-child a i, .primary-nav .nav-icons li:first-child button i {
+  padding-right: 7px;
+}
+.primary-nav .nav-icons button {
+  border: none;
+  background: none;
+}
+.primary-nav .nav-icons button:hover {
+  cursor: pointer;
 }
 .primary-nav .nav-icons .wrapper {
   position: relative;
@@ -63,19 +73,11 @@
   text-align: center;
   text-decoration: none;
 }
-#login-popup a {
-  color: black;
+#login-popup h1 {
+  font-weight: 700;
 }
-#login-popup a:hover {
-  text-decoration: underline;
-}
-#login-popup button {
-  border: none;
-  background: none;
-}
-#login-popup button:hover {
-  text-decoration: underline;
-  cursor: pointer;
+#login-popup h1, #login-popup p {
+  margin-block: 10px;
 }
 
 footer {

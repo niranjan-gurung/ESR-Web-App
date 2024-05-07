@@ -49,15 +49,17 @@
             <ul class="nav-icons">
                 @if (_signInManager.IsSignedIn(User))
                 {
-                    <li><a asp-controller="" asp-action=""><i class="fa fa-magnifying-glass"></i></a></li>
-                    <li><a href="#login-popup" rel="modal:open"><i class="fa fa-user"></i></a></li>
-                    <div id="login-popup" class="modal">
-                        <p><a asp-controller="" asp-action="">Account</a></p>
+                    <li>
                         <form method="post" asp-controller="Account" asp-action="Logout">
                             <button type="submit">
-                                Logout @User.Identity.Name
+                                <i class="fa-solid fa-right-from-bracket"></i>Logout
                             </button>
                         </form>
+                    </li>
+                    <li><a href="#login-popup" rel="modal:open"><i class="fa fa-user"></i></a></li>
+                    <div id="login-popup" class="modal">
+                        <h1>User Info</h1>
+                        <p>Current user: @User.Identity.Name</p>
                     </div>
                     <li>
                         <div class="wrapper">
@@ -72,12 +74,7 @@
                     </li>
                 } else
                 {
-                    <li><a asp-controller="" asp-action=""><i class="fa fa-magnifying-glass"></i></a></li>
-                    <li><a href="#login-popup" rel="modal:open"><i class="fa fa-user"></i></a></li>
-                    <div id="login-popup" class="modal">
-                        <p><a asp-controller="" asp-action="">Account</a></p>
-                        <p><a asp-controller="Account" asp-action="Login">Login</a></p>
-                    </div>
+                    <li><a asp-controller="Account" asp-action="Login"><i class="fa-solid fa-right-to-bracket"></i>Login</a></li>
                     <li><a asp-controller="ShoppingCart" asp-action="ViewCart"><i class="fa fa-cart-shopping"></i></a></li>
                 }
             </ul>

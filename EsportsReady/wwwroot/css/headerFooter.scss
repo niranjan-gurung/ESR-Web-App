@@ -43,12 +43,27 @@
 		li {
 			margin: 0px 10px;
 
-			a {
+			a, button {
 				color: white;
 
 				&:hover {
 					color: #a1a1a1;
 				}
+			}
+		}
+
+		li:first-child {
+			a i, button i {
+				padding-right: 7px;
+			}
+		}
+
+		button {
+			border: none;
+			background: none;
+
+			&:hover {
+				cursor: pointer;
 			}
 		}
 
@@ -73,22 +88,12 @@
 	text-align: center;
 	text-decoration: none;
 
-	a {
-		color: black;
-
-		&:hover {
-			text-decoration: underline;
-		}
+	h1 {
+		font-weight: 700;
 	}
 
-	button {
-		border: none;
-		background: none;
-
-		&:hover {
-			text-decoration: underline;
-			cursor: pointer;
-		}
+	h1, p {
+		margin-block: 10px; 
 	}
 }
 
@@ -237,7 +242,6 @@ footer {
 		.nav-icons {
 			flex-grow: 1;
 			justify-content: end;
-
 			margin-top: 0px;
 		}
 	}
