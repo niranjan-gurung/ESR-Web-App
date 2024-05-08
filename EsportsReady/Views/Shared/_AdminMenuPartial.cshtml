@@ -4,5 +4,5 @@
 @if (_signInManager.IsSignedIn(User) && 
     await _userManager.IsInRoleAsync(_userManager.GetUserAsync(User).Result, "Admin"))
 {
-    <li><a asp-controller="" asp-action="">Admin</a></li>
+    <li><a asp-area="Admin" asp-controller="Product" asp-action="Index">Admin</a></li>
 }
