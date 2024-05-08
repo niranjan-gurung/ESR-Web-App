@@ -7,10 +7,12 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using EsportsReady.Data;
 using EsportsReady.Models;
+using Microsoft.AspNetCore.Authorization;
 
 namespace EsportsReady.Areas.Admin.Controllers
 {
     [Area("Admin")]
+    [Authorize(Roles = "Admin")]
     public class ProductController : Controller
     {
         private readonly ShopContext _context;
