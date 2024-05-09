@@ -24,25 +24,22 @@ namespace EsportsReady.Areas.Admin.Controllers
         // GET: Admin/Product
         public async Task<IActionResult> Index()
         {
-            List<Product> products = await _context.Products
-                .Include(d => d.Description).ToListAsync();
+            List<Product> products = await _context.Products.ToListAsync();
             return View(products);
         }
 
-        // GET: Admin/Product/Details/5
+        // GET: Admin/Product/Details/id
         public async Task<IActionResult> Details(int? id)
         {
-            if (id == null)
-            {
+            if (id == null || id == 0) 
                 return NotFound();
-            }
 
-            var product = await _context.Products
-                .FirstOrDefaultAsync(m => m.Id == id);
+            Product? product = await _context.Products
+                .Include(d => d.Description)
+                .SingleOrDefaultAsync(m => m.Id == id);
+            
             if (product == null)
-            {
                 return NotFound();
-            }
 
             return View(product);
         }
@@ -54,8 +51,6 @@ namespace EsportsReady.Areas.Admin.Controllers
         }
 
         // POST: Admin/Product/Create
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("Id,Title,Image,Price")] Product product)
@@ -69,7 +64,7 @@ namespace EsportsReady.Areas.Admin.Controllers
             return View(product);
         }
 
-        // GET: Admin/Product/Edit/5
+        // GET: Admin/Product/Edit/id
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null)
@@ -86,8 +81,6 @@ namespace EsportsReady.Areas.Admin.Controllers
         }
 
         // POST: Admin/Product/Edit/5
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(int id, [Bind("Id,Title,Image,Price")] Product product)
