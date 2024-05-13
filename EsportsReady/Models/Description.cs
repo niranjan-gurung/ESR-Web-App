@@ -9,7 +9,7 @@ namespace EsportsReady.Models
         public int DescriptionId { get; set; }
         [ForeignKey("ProductId")]
         public int ProductId { get; set; }              // foreign key to principle model (product)
-        public Product Product { get; set; } = null!;   // ref/navigation to principle
+        //public Product Product { get; set; } = null!;   // ref/navigation to principle
 
         public string? CPU { get; set; }
         public string? GPU { get; set; }

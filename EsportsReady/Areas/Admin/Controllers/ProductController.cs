@@ -37,7 +37,7 @@ namespace EsportsReady.Areas.Admin.Controllers
             Product? product = await _context.Products
                 .Include(d => d.Description)
                 .SingleOrDefaultAsync(m => m.Id == id);
-            
+
             if (product == null)
                 return NotFound();
 
@@ -53,7 +53,9 @@ namespace EsportsReady.Areas.Admin.Controllers
         // POST: Admin/Product/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Title,Image,Price")] Product product)
+        public async Task<IActionResult> Create(
+            [Bind("Id,Title,Image,Price,Description")] 
+            Product product)
         {
             if (ModelState.IsValid)
             {
@@ -80,10 +82,10 @@ namespace EsportsReady.Areas.Admin.Controllers
             return View(product);
         }
 
-        // POST: Admin/Product/Edit/5
+        // POST: Admin/Product/Edit/id
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,Title,Image,Price")] Product product)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,Title,Image,Price,Description")] Product product)
         {
             if (id != product.Id)
             {
