@@ -53,9 +53,7 @@ namespace EsportsReady.Areas.Admin.Controllers
         // POST: Admin/Product/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create(
-            [Bind("Id,Title,Image,Price,Description")] 
-            Product product)
+        public async Task<IActionResult> Create(Product product)
         {
             if (ModelState.IsValid)
             {
@@ -74,7 +72,8 @@ namespace EsportsReady.Areas.Admin.Controllers
                 return NotFound();
             }
 
-            var product = await _context.Products.FindAsync(id);
+            var product = await _context.Products
+                .FirstOrDefaultAsync(m => m.Id == id);
             if (product == null)
             {
                 return NotFound();
@@ -85,7 +84,7 @@ namespace EsportsReady.Areas.Admin.Controllers
         // POST: Admin/Product/Edit/id
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,Title,Image,Price,Description")] Product product)
+        public async Task<IActionResult> Edit(int id, Product product)
         {
             if (id != product.Id)
             {
@@ -96,6 +95,10 @@ namespace EsportsReady.Areas.Admin.Controllers
             {
                 try
                 {
+                    // currently working, but not sure if its most effective solution...
+                    product.Description.DescriptionId = product.Id;
+                    product.Description.ProductId = product.Id;
+
                     _context.Update(product);
                     await _context.SaveChangesAsync();
                 }
