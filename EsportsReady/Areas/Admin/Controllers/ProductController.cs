@@ -74,7 +74,6 @@ namespace EsportsReady.Areas.Admin.Controllers
 
             var product = await _context.Products
                 .FirstOrDefaultAsync(m => m.Id == id);
-
             if (product == null)
             {
                 return NotFound();
@@ -96,8 +95,8 @@ namespace EsportsReady.Areas.Admin.Controllers
             {
                 try
                 {
-                    // makes sure that product.id && description.id is always the same:
                     // currently working, but not sure if its most effective solution...
+                    // makes sure that product.id && description.id is always the same:
                     product.Description.DescriptionId = product.Id;
                     product.Description.ProductId = product.Id;
 
@@ -130,6 +129,7 @@ namespace EsportsReady.Areas.Admin.Controllers
 
             var product = await _context.Products
                 .FirstOrDefaultAsync(m => m.Id == id);
+
             if (product == null)
             {
                 return NotFound();
@@ -147,8 +147,8 @@ namespace EsportsReady.Areas.Admin.Controllers
 
             // check if the product has been added to cart:
             var cartItems = HttpContext.Session.Get<List<ShoppingCartItem>>("Cart");
-            var existingCartItem = cartItems
-                .FirstOrDefault(item => item.Product == product);
+            var existingCartItem = 
+                cartItems.FirstOrDefault(item => item.Product.Id == id);
 
             if (product != null)
             {

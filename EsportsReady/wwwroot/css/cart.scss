@@ -86,8 +86,13 @@
 		}
 
 		.title-quantity {
-			h1 {
+			a {
 				font-weight: 500;
+				color: black;
+
+				&:hover {
+					color: #4f4f4f;
+				}
 			}
 		}
 
@@ -271,7 +276,7 @@
 
 			.product-details {
 				.title-quantity {
-					h1 {
+					a {
 						font-size: 1.2rem;
 						font-weight: 600;
 					}

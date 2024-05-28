@@ -9,6 +9,12 @@ const cardColours = [
 	"#F27F94",
 ];
 
+let colourIndex = 0;
+
 for (let i = 0; i < x.length; i++) {
-	x[i].style.backgroundColor = cardColours[i];
+	if (colourIndex > 5)
+		colourIndex = 0;
+
+	x[i].style.backgroundColor = cardColours[colourIndex];
+	colourIndex++;
 }

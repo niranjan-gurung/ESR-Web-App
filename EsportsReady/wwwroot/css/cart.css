@@ -68,8 +68,12 @@
   flex-direction: column;
   justify-content: space-around;
 }
-.lhs-content .product-details .title-quantity h1 {
+.lhs-content .product-details .title-quantity a {
   font-weight: 500;
+  color: black;
+}
+.lhs-content .product-details .title-quantity a:hover {
+  color: #4f4f4f;
 }
 .lhs-content .product-details .delete-price a {
   display: inline-block;
@@ -208,7 +212,7 @@
     height: 100px;
     object-fit: cover;
   }
-  .lhs-content ul li .product-details .title-quantity h1 {
+  .lhs-content ul li .product-details .title-quantity a {
     font-size: 1.2rem;
     font-weight: 600;
   }
