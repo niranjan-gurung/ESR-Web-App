@@ -74,6 +74,7 @@ namespace EsportsReady.Areas.Admin.Controllers
 
             var product = await _context.Products
                 .FirstOrDefaultAsync(m => m.Id == id);
+
             if (product == null)
             {
                 return NotFound();
@@ -95,6 +96,7 @@ namespace EsportsReady.Areas.Admin.Controllers
             {
                 try
                 {
+                    // makes sure that product.id && description.id is always the same:
                     // currently working, but not sure if its most effective solution...
                     product.Description.DescriptionId = product.Id;
                     product.Description.ProductId = product.Id;
@@ -142,10 +144,24 @@ namespace EsportsReady.Areas.Admin.Controllers
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
             var product = await _context.Products.FindAsync(id);
+
+            // check if the product has been added to cart:
+            var cartItems = HttpContext.Session.Get<List<ShoppingCartItem>>("Cart");
+            var existingCartItem = cartItems
+                .FirstOrDefault(item => item.Product == product);
+
             if (product != null)
             {
                 _context.Products.Remove(product);
+
+                if (existingCartItem != null) 
+                {
+                    // deleting product removes it from cart also:
+                    cartItems.RemoveAll(item => item == existingCartItem);
+                }
             }
+
+            HttpContext.Session.Set("Cart", cartItems);
 
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
