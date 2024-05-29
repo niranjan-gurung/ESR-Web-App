@@ -21,29 +21,6 @@ namespace EsportsReady.Areas.Admin.Controllers
             _context = context;
         }
 
-        // GET: Admin/Product
-        public async Task<IActionResult> Index()
-        {
-            List<Product> products = await _context.Products.ToListAsync();
-            return View(products);
-        }
-
-        // GET: Admin/Product/Details/id
-        public async Task<IActionResult> Details(int? id)
-        {
-            if (id == null || id == 0) 
-                return NotFound();
-
-            Product? product = await _context.Products
-                .Include(d => d.Description)
-                .SingleOrDefaultAsync(m => m.Id == id);
-
-            if (product == null)
-                return NotFound();
-
-            return View(product);
-        }
-
         // GET: Admin/Product/Create
         public IActionResult Create()
         {
@@ -114,7 +91,7 @@ namespace EsportsReady.Areas.Admin.Controllers
                         throw;
                     }
                 }
-                return RedirectToAction(nameof(Index));
+                return RedirectToAction("ListAll", "Product", new { area = "User" });
             }
             return View(product);
         }
@@ -164,7 +141,7 @@ namespace EsportsReady.Areas.Admin.Controllers
             HttpContext.Session.Set("Cart", cartItems);
 
             await _context.SaveChangesAsync();
-            return RedirectToAction(nameof(Index));
+            return RedirectToAction("ListAll", "Product", new { area = "User" });
         }
 
         private bool ProductExists(int id)

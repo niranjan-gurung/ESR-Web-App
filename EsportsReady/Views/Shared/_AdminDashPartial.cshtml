@@ -1,0 +1,57 @@
+﻿@inject SignInManager<IdentityUser> _signInManager;
+@inject UserManager<IdentityUser> _userManager;
+
+@if (_signInManager.IsSignedIn(User) &&
+  await _userManager.IsInRoleAsync(_userManager.GetUserAsync(User).Result, "Admin"))
+{
+    <header class="sub-header">
+        <h1>Admin Dashboard</h1>
+    </header>
+
+    <p class="create-product">
+        <a asp-area="Admin" asp-controller="Product" asp-action="Create">Add Product</a>
+    </p>
+
+    <div class="section-container">
+        @foreach (var item in Model)
+        {
+            <section class="product-cards">
+                <a class="title" asp-area="User" asp-controller="Product" asp-action="Details" asp-route-id="@item.Id">@item.Title</a>
+                <img src="@Url.Content(@item.Image)"
+                     alt="image failed to load..." />
+                <div class="update-delete">
+                    <a asp-area="Admin" asp-controller="Product" asp-action="Edit" asp-route-id="@item.Id">Edit</a>
+                    <a asp-area="Admin" asp-controller="Product" asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+                </div>
+            </section>
+        }
+    </div>
+}
+else
+{
+    <main>
+        <div class="hero-img-container">
+            <div class="hero-text">
+                <h3>ESR PLAYER PCS</h3>
+                <h1>Be The Best Player</h1>
+                <p>Don't let your current PC hold you back</p>
+            </div>
+        </div>
+    </main>
+
+    <section>
+        <header class="sub-header">
+            <h1>Our PCs</h1>
+        </header>
+        <div class="section-container">
+            @foreach (var item in Model)
+            {
+                <section class="product-cards">
+                    <a asp-controller="Product" asp-action="Details" asp-route-id="@item.Id">@item.Title</a>
+                    <img src="@Url.Content(@item.Image)"
+                         alt="image failed to load..." />
+                </section>
+            }
+        </div>
+    </section>
+}
