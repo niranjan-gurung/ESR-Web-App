@@ -8,6 +8,7 @@ using Microsoft.EntityFrameworkCore;
 using EsportsReady.Data;
 using EsportsReady.Models;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.CodeAnalysis.CSharp.Syntax;
 
 namespace EsportsReady.Areas.Admin.Controllers
 {
@@ -96,42 +97,42 @@ namespace EsportsReady.Areas.Admin.Controllers
             return View(product);
         }
 
-        // GET: Admin/Product/Delete/5
-        public async Task<IActionResult> Delete(int? id)
-        {
-            if (id == null)
-            {
-                return NotFound();
-            }
+        //// GET: Admin/Product/Delete/5
+        //public async Task<IActionResult> Delete(int? id)
+        //{
+        //    if (id == null)
+        //    {
+        //        return NotFound();
+        //    }
 
-            var product = await _context.Products
-                .FirstOrDefaultAsync(m => m.Id == id);
+        //    var product = await _context.Products
+        //        .FirstOrDefaultAsync(m => m.Id == id);
 
-            if (product == null)
-            {
-                return NotFound();
-            }
+        //    if (product == null)
+        //    {
+        //        return NotFound();
+        //    }
 
-            return View(product);
-        }
+        //    return View(product);
+        //}
 
         // POST: Admin/Product/Delete/5
-        [HttpPost, ActionName("Delete")]
+        //[HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> DeleteConfirmed(int id)
+        public async Task<IActionResult> Delete(int id)
         {
             var product = await _context.Products.FindAsync(id);
 
             // check if the product has been added to cart:
-            var cartItems = HttpContext.Session.Get<List<ShoppingCartItem>>("Cart");
-            var existingCartItem = 
+            var cartItems = HttpContext.Session.Get<List<ShoppingCartItem>>("Cart") ?? [];
+            var existingCartItem =
                 cartItems.FirstOrDefault(item => item.Product.Id == id);
 
             if (product != null)
             {
                 _context.Products.Remove(product);
 
-                if (existingCartItem != null) 
+                if (existingCartItem != null)
                 {
                     // deleting product removes it from cart also:
                     cartItems.RemoveAll(item => item == existingCartItem);
