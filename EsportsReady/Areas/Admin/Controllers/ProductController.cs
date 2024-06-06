@@ -62,13 +62,8 @@ namespace EsportsReady.Areas.Admin.Controllers
         // POST: Admin/Product/Edit/id
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, Product product)
+        public async Task<IActionResult> Edit(Product product)
         {
-            if (id != product.Id)
-            {
-                return NotFound();
-            }
-
             if (ModelState.IsValid)
             {
                 try
@@ -97,27 +92,8 @@ namespace EsportsReady.Areas.Admin.Controllers
             return View(product);
         }
 
-        //// GET: Admin/Product/Delete/5
-        //public async Task<IActionResult> Delete(int? id)
-        //{
-        //    if (id == null)
-        //    {
-        //        return NotFound();
-        //    }
-
-        //    var product = await _context.Products
-        //        .FirstOrDefaultAsync(m => m.Id == id);
-
-        //    if (product == null)
-        //    {
-        //        return NotFound();
-        //    }
-
-        //    return View(product);
-        //}
-
         // POST: Admin/Product/Delete/5
-        //[HttpPost, ActionName("Delete")]
+        [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Delete(int id)
         {

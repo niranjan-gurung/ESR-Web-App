@@ -68,7 +68,6 @@ $img-padding-desktop: 230px;
 	display: flex;
 	flex-direction: column;
 	justify-content: space-between;
-
 	min-height: 300px;
 	padding: 30px 30px;
 	border-radius: 12px;
@@ -99,14 +98,22 @@ $img-padding-desktop: 230px;
 		width: 180px;
 		height: 180px;
 		object-fit: cover;
+		margin-block: 10px;
 	}
 
 	.update-delete {
 		display: flex;
 		flex-direction: column;
 
-		a:first-child {
+		a {
 			margin-bottom: 10px;
+		}
+
+		form {
+			a {
+				display: inline-block;
+				width: 100%;
+			}
 		}
 	}
 }
@@ -173,18 +180,14 @@ $img-padding-desktop: 230px;
 			display: flex;
 			flex-direction: row;
 			justify-content: space-between;
+			gap: 10px;
 
 			a {
 				width: 100%;
+			}
 
-				&:first-child {
-					margin-right: 10px;
-					margin-bottom: 0px;
-				}
-
-				&:last-child {
-					margin-left: 10px;
-				}
+			form {
+				width: 100%;
 			}
 		}
 	}

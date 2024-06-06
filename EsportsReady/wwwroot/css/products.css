@@ -84,13 +84,18 @@
   width: 180px;
   height: 180px;
   object-fit: cover;
+  margin-block: 10px;
 }
 .product-cards .update-delete {
   display: flex;
   flex-direction: column;
 }
-.product-cards .update-delete a:first-child {
+.product-cards .update-delete a {
   margin-bottom: 10px;
+}
+.product-cards .update-delete form a {
+  display: inline-block;
+  width: 100%;
 }
 
 @media screen and (min-width: 500px) {
@@ -145,15 +150,12 @@
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+    gap: 10px;
   }
   .product-cards .update-delete a {
     width: 100%;
   }
-  .product-cards .update-delete a:first-child {
-    margin-right: 10px;
-    margin-bottom: 0px;
-  }
-  .product-cards .update-delete a:last-child {
-    margin-left: 10px;
+  .product-cards .update-delete form {
+    width: 100%;
   }
 }

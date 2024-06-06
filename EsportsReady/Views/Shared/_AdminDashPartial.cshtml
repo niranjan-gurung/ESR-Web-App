@@ -1,4 +1,6 @@
-﻿@inject SignInManager<IdentityUser> _signInManager;
+﻿@model List<Product>
+
+@inject SignInManager<IdentityUser> _signInManager;
 @inject UserManager<IdentityUser> _userManager;
 
 @if (_signInManager.IsSignedIn(User) &&
@@ -21,32 +23,19 @@
                      alt="image failed to load..." />
                 <div class="update-delete">
                     <a asp-area="Admin" asp-controller="Product" asp-action="Edit" asp-route-id="@item.Id">Edit</a>
-                    @* <a asp-area="Admin" asp-controller="Product" asp-action="Delete" asp-route-id="@item.Id">Delete</a> *@
-                    <form method="post"
-                        asp-area="Admin" 
-                        asp-controller="Product" 
-                        asp-action="Delete" 
-                        asp-route-id="@item.Id">
+                    <a href="#delete_@item.Id" rel="modal:open">Delete</a>
+                    <div id="delete_@item.Id" class="modal">
+                        <form method="post"
+                            asp-area="Admin" 
+                            asp-controller="Product" 
+                            asp-action="Delete" 
+                            asp-route-id="@item.Id">
 
-                        <span id="confirm-delete-span_@item.Id" style="display: none">
-                            <span>Are you sure you want to delete?</span>
+                            <span>Are you sure you want to delete @item.Title?</span>
                             <button type="submit">Yes</button>
-                            <a href="#"
-                               onclick="confirmDelete('@item.Id', false)">No</a>
-                        </span>
-                        <span id="delete-span_@item.Id">
-                            <a onclick="confirmDelete('@item.Id', true)">Delete</a>
-                        </span>
-
-                        @*<div id="popup" class="modal">
-                            <span id="confirm-delete-span_@item.Id" style="display: none">
-                                <span>Are you sure you want to delete?</span>
-                                <button type="submit">Yes</button>
-                                <a href="#"
-                                   onclick="confirmDelete('@item.Id', false)">No</a>
-                            </span>
-                        </div> *@
-                    </form>
+                            <a href="#" rel="modal:close">No</a>
+                        </form>
+                    </div>
                 </div>
             </section>
         }
@@ -80,5 +69,3 @@ else
         </div>
     </section>
 }
-
-<script src="~/js/confirmDelete.js"></script>
