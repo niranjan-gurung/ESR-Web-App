@@ -34,5 +34,13 @@
   {
     "outputFile": "wwwroot/js/site.es5.js",
     "inputFile": "wwwroot/js/site.js"
+  },
+  {
+    "outputFile": "wwwroot/css/edit-page.css",
+    "inputFile": "wwwroot/css/edit-page.scss"
+  },
+  {
+    "outputFile": "wwwroot/css/edit-create-page.css",
+    "inputFile": "wwwroot/css/edit-create-page.scss"
   }
 ]

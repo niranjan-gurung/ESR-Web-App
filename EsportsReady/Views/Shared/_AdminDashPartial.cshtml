@@ -23,6 +23,7 @@
                      alt="image failed to load..." />
                 <div class="update-delete">
                     <a asp-area="Admin" asp-controller="Product" asp-action="Edit" asp-route-id="@item.Id">Edit</a>
+
                     <a href="#delete_@item.Id" rel="modal:open">Delete</a>
                     <div id="delete_@item.Id" class="modal">
                         <form method="post"

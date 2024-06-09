@@ -4,72 +4,21 @@
     ViewData["Title"] = "Create";
 }
 
-<h1>Create</h1>
+<head>
+    <link rel="stylesheet" href="~/css/edit-create-page.css" asp-append-version="true" />
+</head>
 
-<h4>Product</h4>
+<div class="title">
+    <h1>CREATE</h1>
+    <h2>Product</h2>
+</div>
+
 <hr />
-<div class="row">
-    <div class="col-md-4">
-        <form method="post">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <div class="form-group">
-                <label asp-for="Title" class="control-label"></label>
-                <input asp-for="Title" class="form-control" />
-                <span asp-validation-for="Title" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Image" class="control-label"></label>
-                <input asp-for="Image" class="form-control" />
-                <span asp-validation-for="Image" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Price" class="control-label"></label>
-                <input asp-for="Price" class="form-control" />
-                <span asp-validation-for="Price" class="text-danger"></span>
-            </div>
-            <h4>Description</h4>
-            <hr />
-            <div class="form-group">
-                <label asp-for="Description.CPU" class="control-label"></label>
-                <input asp-for="Description.CPU" class="form-control" />
-                <span asp-validation-for="Description.CPU" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Description.GPU" class="control-label"></label>
-                <input asp-for="Description.GPU" class="form-control" />
-                <span asp-validation-for="Description.GPU" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Description.Memory" class="control-label"></label>
-                <input asp-for="Description.Memory" class="form-control" />
-                <span asp-validation-for="Description.Memory" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Description.Motherboard" class="control-label"></label>
-                <input asp-for="Description.Motherboard" class="form-control" />
-                <span asp-validation-for="Description.Motherboard" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Description.Storage" class="control-label"></label>
-                <input asp-for="Description.Storage" class="form-control" />
-                <span asp-validation-for="Description.Storage" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Description.PSU" class="control-label"></label>
-                <input asp-for="Description.PSU" class="form-control" />
-                <span asp-validation-for="Description.PSU" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <input type="submit" value="Create" class="btn btn-primary" />
-            </div>
-        </form>
-    </div>
-</div>
 
-<div>
-    <a asp-area="User" asp-controller="Product" asp-action="ListAll">Back to List</a>
-</div>
+<partial name="_createOrEdit" />
 
 @section Scripts {
-    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
 }
