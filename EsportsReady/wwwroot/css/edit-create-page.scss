@@ -1,12 +1,14 @@
 ﻿.container {
 	max-width: 600px;
 	margin-inline: auto;
-	text-align: center;
-	/*border: 1px solid red;*/
-
+	
 	.submit-btn {
 		margin-top: 10px;
 	}
+}
+
+.text-danger {
+	color: red;
 }
 
 h1 {
@@ -26,3 +28,18 @@ h2 {
 .product-description {
 	margin-top: 10px;
 }
+
+.product-title {
+
+}
+
+.form-group {
+	display: flex;
+	justify-content: space-between;
+
+	input[type="file"] {
+		text-align-last: right;
+		margin-right: 5px;
+	}
+}
+

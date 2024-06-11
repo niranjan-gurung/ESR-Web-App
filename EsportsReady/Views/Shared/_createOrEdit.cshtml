@@ -5,55 +5,55 @@
         <div asp-validation-summary="ModelOnly" class="text-danger"></div>
         @* <input type="hidden" asp-for="Id" /> *@
         <div class="product-title">
+            <span asp-validation-for="Title" class="text-danger"></span>
             <div class="form-group">
                 <label asp-for="Title" class="control-label"></label>
                 <input asp-for="Title" class="form-control" />
-                <span asp-validation-for="Title" class="text-danger"></span>
             </div>
+            <span asp-validation-for="Image" class="text-danger"></span>
             <div class="form-group">
                 <label asp-for="Image" class="control-label"></label>
-                <input asp-for="Image" class="form-control" />
-                <span asp-validation-for="Image" class="text-danger"></span>
+                <input asp-for="Image" type="file" accept="image/*" />
             </div>
+            <span asp-validation-for="Price" class="text-danger"></span>
             <div class="form-group">
                 <label asp-for="Price" class="control-label"></label>
                 <input asp-for="Price" class="form-control" />
-                <span asp-validation-for="Price" class="text-danger"></span>
             </div>
         </div>
 
         <div class="product-description">
             <h2>Description</h2>
             <hr />
+            <span asp-validation-for="Description.CPU" class="text-danger"></span>
             <div class="form-group">
                 <label asp-for="Description.CPU" class="control-label"></label>
                 <input asp-for="Description.CPU" class="form-control" />
-                <span asp-validation-for="Description.CPU" class="text-danger"></span>
             </div>
+            <span asp-validation-for="Description.GPU" class="text-danger"></span>
             <div class="form-group">
                 <label asp-for="Description.GPU" class="control-label"></label>
                 <input asp-for="Description.GPU" class="form-control" />
-                <span asp-validation-for="Description.GPU" class="text-danger"></span>
             </div>
+            <span asp-validation-for="Description.Memory" class="text-danger"></span>
             <div class="form-group">
                 <label asp-for="Description.Memory" class="control-label"></label>
                 <input asp-for="Description.Memory" class="form-control" />
-                <span asp-validation-for="Description.Memory" class="text-danger"></span>
             </div>
+            <span asp-validation-for="Description.Motherboard" class="text-danger"></span>
             <div class="form-group">
                 <label asp-for="Description.Motherboard" class="control-label"></label>
                 <input asp-for="Description.Motherboard" class="form-control" />
-                <span asp-validation-for="Description.Motherboard" class="text-danger"></span>
             </div>
+            <span asp-validation-for="Description.Storage" class="text-danger"></span>
             <div class="form-group">
                 <label asp-for="Description.Storage" class="control-label"></label>
                 <input asp-for="Description.Storage" class="form-control" />
-                <span asp-validation-for="Description.Storage" class="text-danger"></span>
             </div>
+            <span asp-validation-for="Description.PSU" class="text-danger"></span>
             <div class="form-group">
                 <label asp-for="Description.PSU" class="control-label"></label>
                 <input asp-for="Description.PSU" class="form-control" />
-                <span asp-validation-for="Description.PSU" class="text-danger"></span>
             </div>
         </div>
         <div class="submit-btn">

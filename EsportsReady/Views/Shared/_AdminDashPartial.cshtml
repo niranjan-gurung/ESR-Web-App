@@ -19,7 +19,7 @@
         {
             <section class="product-cards">
                 <a class="title" asp-area="User" asp-controller="Product" asp-action="Details" asp-route-id="@item.Id">@item.Title</a>
-                <img src="@Url.Content(@item.Image)"
+                <img src="~/images/PCs/@Url.Content(@item.Image)"
                      alt="image failed to load..." />
                 <div class="update-delete">
                     <a asp-area="Admin" asp-controller="Product" asp-action="Edit" asp-route-id="@item.Id">Edit</a>
