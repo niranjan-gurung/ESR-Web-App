@@ -9,6 +9,7 @@ using EsportsReady.Data;
 using EsportsReady.Models;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.CodeAnalysis.CSharp.Syntax;
+using Microsoft.Extensions.Hosting;
 
 namespace EsportsReady.Areas.Admin.Controllers
 {
@@ -51,6 +52,7 @@ namespace EsportsReady.Areas.Admin.Controllers
             }
 
             var product = await _context.Products
+                .Include(d => d.Description)
                 .FirstOrDefaultAsync(m => m.Id == id);
             if (product == null)
             {
