@@ -1,8 +1,7 @@
 ﻿@inject SignInManager<IdentityUser> _signInManager;
 @inject UserManager<IdentityUser> _userManager;
 
-@if (_signInManager.IsSignedIn(User) && 
-    await _userManager.IsInRoleAsync(_userManager.GetUserAsync(User).Result, "Admin"))
+@if (_signInManager.IsSignedIn(User) && User.IsInRole("Admin"))
 {
     <li><a asp-controller="Product" asp-action="ListAll">Admin</a></li>
 }
