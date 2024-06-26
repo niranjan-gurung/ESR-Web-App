@@ -28,6 +28,11 @@
   text-decoration: underline;
 }
 
+.text-danger {
+  color: red;
+  font-size: 0.95rem;
+}
+
 form {
   max-width: 350px;
   margin-inline: auto;
@@ -47,10 +52,6 @@ form .form-group label, form .form-group input {
 form .form-group .form-control {
   border: 1px solid #7a7a7a;
   border-radius: 5px;
-}
-form .form-group .text-danger {
-  color: red;
-  font-size: 0.95rem;
 }
 form .btn-parent {
   text-align: center;

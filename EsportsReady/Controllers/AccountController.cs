@@ -4,6 +4,8 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.UI.Services;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.WebUtilities;
+using System.Text;
 
 namespace EsportsReady.Controllers
 {
@@ -46,7 +48,8 @@ namespace EsportsReady.Controllers
                 if (result.Succeeded) 
                 {
                     var _token = await _userManager.GenerateEmailConfirmationTokenAsync(user);
-                    
+                    _token = WebEncoders.Base64UrlEncode(Encoding.UTF8.GetBytes(_token));
+
                     var confirmationLink = Url.Action("ConfirmEmail", "Account", 
                         new { userId = user.Id, token = _token }, Request.Scheme);
 
@@ -58,7 +61,7 @@ namespace EsportsReady.Controllers
                      * admin role was assigned manually... */
                     await _userManager.AddToRoleAsync(user, "User");
 
-                    return View("ConfirmEmail");
+                    return View("RegistrationConfirmation");
 
                     // sign in after successful register:
                     //await _signInManager.SignInAsync(user, isPersistent: false);
@@ -73,14 +76,17 @@ namespace EsportsReady.Controllers
         }
 
         [HttpGet]
-        public async Task<IActionResult> ConfirmEmail(string token, string email)
+        [AllowAnonymous]
+        public async Task<IActionResult> ConfirmEmail(string userId, string token)
         {
-            var user = await _userManager.FindByEmailAsync(email);
-            if (user == null)
+            if (userId == null || token == null)
                 return NotFound();
+
+            var user = await _userManager.FindByIdAsync(userId);
+            //var user = await _userManager.FindByEmailAsync(email);
             var result = await _userManager.ConfirmEmailAsync(user, token);
-            return View();
-            //return View(result.Succeeded ? nameof(ConfirmEmail) : "Error");
+
+            return View(result.Succeeded ? nameof(ConfirmEmail) : NotFound());
         }
 
         [HttpGet]
@@ -106,7 +112,7 @@ namespace EsportsReady.Controllers
                     if (!await _userManager.IsEmailConfirmedAsync(user))
                     {
                         ViewBag.errorMessage = "You must have a confirmed email to log on.";
-                        return NotFound();
+                        //return NotFound();
                     }
                 }
 
