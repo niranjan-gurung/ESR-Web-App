@@ -1,5 +1,7 @@
 using EsportsReady.Data;
+using EsportsReady.Services;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Identity.UI.Services;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -16,10 +18,13 @@ builder.Services.AddDbContext<ShopContext>(options =>
 // Overrides the default password options:
 builder.Services.AddIdentity<IdentityUser, IdentityRole>(options =>
     {
-        //options.SignIn.RequireConfirmedEmail = true;
+        options.SignIn.RequireConfirmedEmail = true;
     })
     .AddEntityFrameworkStores<ShopContext>()
     .AddDefaultTokenProviders();
+
+builder.Services.AddTransient<IEmailSender, EmailSender>();
+builder.Services.Configure<AuthMessageSenderOptions>(builder.Configuration);
 
 builder.Services.AddControllersWithViews();
 

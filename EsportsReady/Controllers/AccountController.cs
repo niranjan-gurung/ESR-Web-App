@@ -1,6 +1,8 @@
-﻿using EsportsReady.Models;
+﻿using EsportsReady.Data;
+using EsportsReady.Models;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Identity.UI.Services;
 using Microsoft.AspNetCore.Mvc;
 
 namespace EsportsReady.Controllers
@@ -9,16 +11,16 @@ namespace EsportsReady.Controllers
     {
         private readonly UserManager<IdentityUser> _userManager;
         private readonly SignInManager<IdentityUser> _signInManager;
-        private readonly ILogger<AccountController> _logger;
+        private readonly IEmailSender _emailSender;
 
         public AccountController(
             UserManager<IdentityUser> userManager,
             SignInManager<IdentityUser> signInManager,
-            ILogger<AccountController> logger)
+            IEmailSender emailSender)
         {
             _userManager = userManager;
             _signInManager = signInManager;
-            _logger = logger;
+            _emailSender = emailSender;
         }
 
         [HttpGet]
@@ -43,25 +45,24 @@ namespace EsportsReady.Controllers
 
                 if (result.Succeeded) 
                 {
-                    //var _token = await _userManager.GenerateEmailConfirmationTokenAsync(user);
+                    var _token = await _userManager.GenerateEmailConfirmationTokenAsync(user);
                     
-                    //var confirmationLink = Url.Action("ConfirmEmail", "Account", 
-                    //    new { userId = user.Id, token = _token }, Request.Scheme);
+                    var confirmationLink = Url.Action("ConfirmEmail", "Account", 
+                        new { userId = user.Id, token = _token }, Request.Scheme);
 
-                    //_logger.Log(LogLevel.Warning, confirmationLink);
+                    await _emailSender.SendEmailAsync(user.Email, "Confirm your account",
+                        "Please confirm your account by clicking <a href=\"" + 
+                        confirmationLink + "\">here</a>");
 
                     /* every new user is given 'User' role by default.
                      * admin role was assigned manually... */
                     await _userManager.AddToRoleAsync(user, "User");
 
-                    //ViewBag.ErrorTitle = "Registration successful!";
-                    //ViewBag.ErrorMessage = "Please confirm your email before you login, " +
-                    //    "by clocking on the confirmation link we have emailed you.";
+                    return View("ConfirmEmail");
 
-                    //return RedirectToAction("Error", "Home");
                     // sign in after successful register:
-                    await _signInManager.SignInAsync(user, isPersistent: false);
-                    return RedirectToAction("Index", "Home");
+                    //await _signInManager.SignInAsync(user, isPersistent: false);
+                    //return RedirectToAction("Index", "Home");
                 }
 
                 foreach (IdentityError err in result.Errors)
@@ -69,6 +70,17 @@ namespace EsportsReady.Controllers
             }
 
             return View(model);
+        }
+
+        [HttpGet]
+        public async Task<IActionResult> ConfirmEmail(string token, string email)
+        {
+            var user = await _userManager.FindByEmailAsync(email);
+            if (user == null)
+                return NotFound();
+            var result = await _userManager.ConfirmEmailAsync(user, token);
+            return View();
+            //return View(result.Succeeded ? nameof(ConfirmEmail) : "Error");
         }
 
         [HttpGet]
@@ -87,6 +99,16 @@ namespace EsportsReady.Controllers
                     model.Password, 
                     model.RememberMe, 
                     false);
+
+                var user = await _userManager.FindByNameAsync(model.Email);
+                if (user != null)
+                {
+                    if (!await _userManager.IsEmailConfirmedAsync(user))
+                    {
+                        ViewBag.errorMessage = "You must have a confirmed email to log on.";
+                        return NotFound();
+                    }
+                }
 
                 if (result.Succeeded)
                 {
