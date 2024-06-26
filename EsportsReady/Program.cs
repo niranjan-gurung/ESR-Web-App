@@ -14,8 +14,12 @@ builder.Services.AddDbContext<ShopContext>(options =>
 
 // Initialise identity services.
 // Overrides the default password options:
-builder.Services.AddIdentity<IdentityUser, IdentityRole>()
-    .AddEntityFrameworkStores<ShopContext>();
+builder.Services.AddIdentity<IdentityUser, IdentityRole>(options =>
+    {
+        //options.SignIn.RequireConfirmedEmail = true;
+    })
+    .AddEntityFrameworkStores<ShopContext>()
+    .AddDefaultTokenProviders();
 
 builder.Services.AddControllersWithViews();
 

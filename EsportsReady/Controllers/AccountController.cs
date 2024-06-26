@@ -9,13 +9,16 @@ namespace EsportsReady.Controllers
     {
         private readonly UserManager<IdentityUser> _userManager;
         private readonly SignInManager<IdentityUser> _signInManager;
+        private readonly ILogger<AccountController> _logger;
 
         public AccountController(
             UserManager<IdentityUser> userManager,
-            SignInManager<IdentityUser> signInManager)
+            SignInManager<IdentityUser> signInManager,
+            ILogger<AccountController> logger)
         {
             _userManager = userManager;
             _signInManager = signInManager;
+            _logger = logger;
         }
 
         [HttpGet]
@@ -35,14 +38,27 @@ namespace EsportsReady.Controllers
                     Email = model.Email,
                 };
                 
+                // creates new user account with the details from model object:
                 var result = await _userManager.CreateAsync(user, model.Password);
 
                 if (result.Succeeded) 
                 {
+                    //var _token = await _userManager.GenerateEmailConfirmationTokenAsync(user);
+                    
+                    //var confirmationLink = Url.Action("ConfirmEmail", "Account", 
+                    //    new { userId = user.Id, token = _token }, Request.Scheme);
+
+                    //_logger.Log(LogLevel.Warning, confirmationLink);
+
                     /* every new user is given 'User' role by default.
                      * admin role was assigned manually... */
                     await _userManager.AddToRoleAsync(user, "User");
 
+                    //ViewBag.ErrorTitle = "Registration successful!";
+                    //ViewBag.ErrorMessage = "Please confirm your email before you login, " +
+                    //    "by clocking on the confirmation link we have emailed you.";
+
+                    //return RedirectToAction("Error", "Home");
                     // sign in after successful register:
                     await _signInManager.SignInAsync(user, isPersistent: false);
                     return RedirectToAction("Index", "Home");
@@ -76,7 +92,9 @@ namespace EsportsReady.Controllers
                 {
                     if (!string.IsNullOrEmpty(returnUrl))
                         return LocalRedirect(returnUrl);
-                    else
+                    else if (_signInManager.IsSignedIn(User) && User.IsInRole("Admin"))
+                        return RedirectToAction("ListAll", "Product");
+                    else 
                         return RedirectToAction("Index", "Home");
                 }
 
