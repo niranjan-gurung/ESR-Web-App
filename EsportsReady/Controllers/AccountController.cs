@@ -48,24 +48,20 @@ namespace EsportsReady.Controllers
                 if (result.Succeeded) 
                 {
                     var _token = await _userManager.GenerateEmailConfirmationTokenAsync(user);
-                    _token = WebEncoders.Base64UrlEncode(Encoding.UTF8.GetBytes(_token));
+                    var encodedToken = WebEncoders.Base64UrlEncode(Encoding.UTF8.GetBytes(_token));
 
                     var confirmationLink = Url.Action("ConfirmEmail", "Account", 
-                        new { userId = user.Id, token = _token }, Request.Scheme);
+                        new { userId = user.Id, token = encodedToken }, Request.Scheme);
 
                     await _emailSender.SendEmailAsync(user.Email, "Confirm your account",
-                        "Please confirm your account by clicking <a href=\"" + 
-                        confirmationLink + "\">here</a>");
+                        "Please confirm your account by clicking <a href=" + 
+                        confirmationLink + ">here</a>");
 
                     /* every new user is given 'User' role by default.
                      * admin role was assigned manually... */
                     await _userManager.AddToRoleAsync(user, "User");
 
                     return View("RegistrationConfirmation");
-
-                    // sign in after successful register:
-                    //await _signInManager.SignInAsync(user, isPersistent: false);
-                    //return RedirectToAction("Index", "Home");
                 }
 
                 foreach (IdentityError err in result.Errors)
@@ -83,8 +79,11 @@ namespace EsportsReady.Controllers
                 return NotFound();
 
             var user = await _userManager.FindByIdAsync(userId);
-            //var user = await _userManager.FindByEmailAsync(email);
-            var result = await _userManager.ConfirmEmailAsync(user, token);
+
+            // token is encoded, need to decode before use...
+            var decodedToken = Encoding.UTF8.GetString(WebEncoders.Base64UrlDecode(token));
+
+            var result = await _userManager.ConfirmEmailAsync(user, decodedToken);
 
             return View(result.Succeeded ? nameof(ConfirmEmail) : NotFound());
         }
@@ -112,7 +111,6 @@ namespace EsportsReady.Controllers
                     if (!await _userManager.IsEmailConfirmedAsync(user))
                     {
                         ViewBag.errorMessage = "You must have a confirmed email to log on.";
-                        //return NotFound();
                     }
                 }
 
