@@ -14,15 +14,18 @@ namespace EsportsReady.Controllers
         private readonly UserManager<IdentityUser> _userManager;
         private readonly SignInManager<IdentityUser> _signInManager;
         private readonly IEmailSender _emailSender;
+        private readonly ILogger _logger;
 
         public AccountController(
             UserManager<IdentityUser> userManager,
             SignInManager<IdentityUser> signInManager,
-            IEmailSender emailSender)
+            IEmailSender emailSender,
+            ILogger<AccountController> logger)
         {
             _userManager = userManager;
             _signInManager = signInManager;
             _emailSender = emailSender;
+            _logger = logger;
         }
 
         [HttpGet]
@@ -56,6 +59,10 @@ namespace EsportsReady.Controllers
                     await _emailSender.SendEmailAsync(user.Email, "Confirm your account",
                         "Please confirm your account by clicking <a href=" + 
                         confirmationLink + ">here</a>");
+
+                    // logs confirmation link in debug console
+                    // needed for confirming fake emails, ex: test@test.com
+                    _logger.LogInformation(confirmationLink);
 
                     /* every new user is given 'User' role by default.
                      * admin role was assigned manually... */
