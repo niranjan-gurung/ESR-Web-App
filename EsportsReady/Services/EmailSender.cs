@@ -32,8 +32,9 @@ namespace EsportsReady.Data
             var msg = new SendGridMessage()
             {
                 // "gurung5130@gmail.com" == temp domain setup on sendgrid,
-                // all emails are sent from this domain for the time being..
                 // needs to be replaced with real domain/host.
+                // emails are successfully sent to @gmail and @yahoo
+                // however receiving them are delayed (especially yahoo, 15/20 mins).
                 From = new EmailAddress("gurung5130@gmail.com", "Esports Ready"),
                 Subject = subject,
                 PlainTextContent = message,
