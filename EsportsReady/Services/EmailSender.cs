@@ -31,7 +31,10 @@ namespace EsportsReady.Data
             var client = new SendGridClient(Options.SendGridKey);
             var msg = new SendGridMessage()
             {
-                From = new EmailAddress("gurung5130@gmail.com", "Account Confirmation"),
+                // "gurung5130@gmail.com" == temp domain setup on sendgrid,
+                // all emails are sent from this domain for the time being..
+                // needs to be replaced with real domain/host.
+                From = new EmailAddress("gurung5130@gmail.com", "Esports Ready"),
                 Subject = subject,
                 PlainTextContent = message,
                 HtmlContent = message
