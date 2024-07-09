@@ -2,19 +2,15 @@
 using EsportsReady.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Metadata.Internal;
+using Stripe;
 using Stripe.Checkout;
 
 namespace EsportsReady.Controllers
 {
     public class CheckoutController : Controller
     {
-        private readonly ShopContext _context;
-        public CheckoutController(ShopContext context)
-        {
-            _context = context;
-        }
-
-        public async Task<IActionResult> Create()
+        public async Task<IActionResult> Charge()
         {
             var cartItems = HttpContext.Session.Get<List<ShoppingCartItem>>("Cart") ?? [];
 
@@ -22,12 +18,14 @@ namespace EsportsReady.Controllers
 
             var options = new SessionCreateOptions
             {
-                SuccessUrl = domain + "Checkout/OrderConfirmation",
-                CancelUrl = domain + "Account/Login",
-                //UiMode = "embedded",
+                SuccessUrl = domain + "Checkout/Success",
+                CancelUrl = domain + "ShoppingCart/ViewCart",
                 LineItems = new List<SessionLineItemOptions>(),
                 Mode = "payment",
-                //ReturnUrl = domain + "/return.html?session_id={CHECKOUT_SESSION_ID}",
+                PaymentMethodTypes = new List<string>
+                {
+                    "card",
+                },
             };
 
             foreach (var item in cartItems) 
@@ -52,13 +50,15 @@ namespace EsportsReady.Controllers
             Session session = service.Create(options);
 
             Response.Headers.Add("Location", session.Url);
-
-            //return View(cartItems);
             return new StatusCodeResult(303);
         }
 
-        public async Task<IActionResult> OrderConfirmation()
+        public async Task<IActionResult> Success()
         {
+            var cartItems = HttpContext.Session.Get<List<ShoppingCartItem>>("Cart") ?? [];
+            cartItems.Clear();
+            HttpContext.Session.Set("Cart", cartItems);
+
             return View();
         }
     }

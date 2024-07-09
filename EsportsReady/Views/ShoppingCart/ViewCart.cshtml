@@ -6,6 +6,7 @@
 
 <head>
     <link rel="stylesheet" href="~/css/cart.css" asp-append-version="true" />
+    <script src="https://js.stripe.com/v3/"></script>
 </head>
 
 @if (@Model.TotalQuantity == 0)
@@ -42,7 +43,6 @@
 
                         <div class="product-details">
                             <div class="title-quantity">
-                                @* <a>@item.Product.Title</a> *@
                                 <a asp-area="User" asp-controller="Product" asp-action="Details" asp-route-id="@item.Product.Id">@item.Product.Title</a>
                                 <div class="quantity-btn">
                                     <a asp-controller="ShoppingCart" asp-action="RemoveItem" asp-route-id="@item.Product.Id">-</a>
@@ -95,7 +95,7 @@
                 </div>
 
                 <div class="btn-parent">
-                    <a asp-area="User" asp-controller="Checkout" asp-action="Create" class="btn">Proceed to Checkout</a>
+                    <a asp-area="User" asp-controller="Checkout" asp-action="Charge" class="btn">Proceed to Checkout</a>
                 </div>
             </div>
         </section>

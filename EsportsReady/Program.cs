@@ -30,6 +30,9 @@ builder.Services.Configure<AuthMessageSenderOptions>(builder.Configuration);
 // grab stripe secret api key:
 StripeConfiguration.ApiKey = builder.Configuration.GetSection("Stripe:SecretKey").Get<string>();
 
+//builder.Services.Configure<StripeOptions>(
+//    builder.Configuration.GetSection("Stripe"));
+
 builder.Services.AddControllersWithViews();
 
 var app = builder.Build();
