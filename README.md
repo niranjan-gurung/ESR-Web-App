@@ -20,32 +20,42 @@ Functionalities include:
 - Add to cart
 - Checkout and purchase via Stripe checkout page
 
-Home page
+### Home page
+
 ![alt text](EsportsReady/docs/images/homepage.png)
 
-Product page
+### Product page
+
 ![alt text](EsportsReady/docs/images/product-page.png)
 
-Products
+### Products
+
 ![alt text](EsportsReady/docs/images/products.png)
 
-Product details
+### Product details
+
 ![alt text](EsportsReady/docs/images/product-details.png)
 
-Add to cart
+### Add to cart
+
 ![alt text](EsportsReady/docs/images/cart.png)
 
-Stripe checkout
+### Stripe checkout
+
 ![alt text](EsportsReady/docs/images/stripe-checkout.png)
 
-Admin dashboard
+### Admin dashboard
+
 ![alt text](EsportsReady/docs/images/admin-dash.png)
 
-Create
+### Create
+
 ![alt text](EsportsReady/docs/images/create.png)
 
-Edit
+### Edit
+
 ![alt text](EsportsReady/docs/images/edit.png)
 
-Delete
+### Delete
+
 ![alt text](EsportsReady/docs/images/delete.png)
