@@ -2,6 +2,9 @@
 
 ### Fullstack E-Commerce Web App
 
+**_NOTE_**
+\*Peripherals, Components and Support navigations are currently **placeholders\***
+
 Fully functioning e-commerce app that aims to sell custom prebuilt PCs for gamers.
 Technologies used:
 
